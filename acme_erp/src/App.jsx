@@ -7,6 +7,7 @@ import Cards from './components/Cards.jsx'
 import About from './components/About .jsx'
 import BlogPost from './components/blogpost.jsx'
 import Accounting from './page/Accounting.jsx'
+import Question from './components/Question.jsx'
 const App = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const App = () => {
       <Cards/>
       <About/>
       <BlogPost/>
+      <Question/>
       <Accounting/>
     </div>
   )
