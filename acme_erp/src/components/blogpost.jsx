@@ -5,6 +5,7 @@ import image1 from '../assets/img/blog/accounting.jpg';
 import image2 from '../assets/img/blog/finance.jpg';
 import image3 from '../assets/img/blog/finance01.jpg';
 import { BiColor } from 'react-icons/bi';
+import { FaArrowLeftLong } from "react-icons/fa6";
 // import image4 from '../assets/img/bg/aboutus.jpg'; // Add your own image here
 
 const blogPosts = [
@@ -65,7 +66,7 @@ const BlogPost = () => {
 
 
       <div className="blog-slider d-flex align-items-center justify-content-center">
-        <button className="arrow-btn" onClick={handlePrev}>&lt;</button>
+        <div className="arrow-btn2" onClick={handlePrev}><FaArrowLeftLong/></div>
         <div className="row flex-nowrap overflow-hidden">
           {visiblePosts.map((post, index) => (
             <div className="col-md-4 mb-4" key={index}>
@@ -84,7 +85,7 @@ const BlogPost = () => {
             </div>
           ))}
         </div>
-        <button className="arrow-btn" onClick={handleNext}>&gt;</button>
+        <div className="arrow-btn" onClick={handleNext}><FaArrowLeftLong/></div>
       </div>
     </div>
   );
