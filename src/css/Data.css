@@ -1,0 +1,70 @@
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #004b6b;
+  padding: 10px 10px;
+  color: #fff;
+  flex-wrap: wrap;
+  border-bottom: 3px solid #fff;
+  gap: 0;
+ 
+}
+
+.stat-box {
+  text-align: center;
+  margin: 20px;
+  min-width: 150px;
+  flex: 1 1 150px;
+  max-width: 250px;
+}
+
+/* Remove icon styling since icons are gone */
+.stat-box .icon {
+  display: none;
+}
+
+.stat-box h2 {
+  font-size: 50px;
+  font-weight: 750;
+  margin: 0;
+}
+
+.stat-box p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Tablet: 2x2 grid */
+@media (max-width: 991.98px) {
+  .stats-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 0;
+    justify-items: center;
+  }
+  .stat-box {
+    max-width: 100%;
+    margin: 0 0 24px 0;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 575.98px) {
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 16px 0;
+    padding: 24px 8px;
+  }
+  .stat-box {
+    margin: 0 0 16px 0;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .stat-box h2 {
+    font-size: 28px;
+  }
+  .stat-box p {
+    font-size: 13px;
+  }
+}
