@@ -104,11 +104,11 @@
 .arrow-btn {
   background: #fff;
   color:#004868;
-  font-size: 1.5rem;
+  rotate: 180deg;
   border: none;
   border-radius: 50%;
-  width: 42px;
-  height: 50px;
+  width: 75px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,6 +117,25 @@
   transition: background 0.3s ease;
 }
 
+.arrow-btn2 {
+  background: #fff;
+  color:#004868;
+
+  border: none;
+  border-radius: 50%;
+  width: 75px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.arrow-btn2:hover {
+  background: #004868;
+    color: #fff;
+}
 .arrow-btn:hover {
   background: #004868;
     color: #fff;

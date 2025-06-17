@@ -7,6 +7,7 @@ import Cards from './components/Cards.jsx'
 import About from './components/About .jsx'
 import BlogPost from './components/blogpost.jsx'
 import Accounting from './page/Accounting.jsx'
+import Plan from './components/Plan.jsx'
 const App = () => {
   return (
     <div>
@@ -17,7 +18,8 @@ const App = () => {
       <Cards/>
       <About/>
       <BlogPost/>
-      <Accounting/>
+      <Plan/>
+      {/* <Accounting/> */}
     </div>
   )
 }

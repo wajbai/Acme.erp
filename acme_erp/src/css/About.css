@@ -1,6 +1,4 @@
-About.css
-
-.about-section {
+About.css .about-section {
   min-height: 100vh;
   background-color: #f8f9fa;
   display: flex;
@@ -31,15 +29,18 @@ About.css
   padding: 2rem;
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.1);
   border: 4px solid #004768;
+  width: 550px;
+  height: 400px;
   position: relative;
 }
 
 .image-placeholder {
   aspect-ratio: 1;
-  background: linear-gradient(135deg, #dbeafe 0%, #f0f9ff 100%);
   border-radius: 1rem;
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   overflow: hidden;
 }
@@ -62,7 +63,8 @@ About.css
   color: #1f2937;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
 }
 
 .subtitle {
@@ -137,18 +139,77 @@ About.css
   color: #6b7280;
 }
 
+.image1{
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 550px;  
+  border-radius: 15px;
+  box-shadow: 5px 5px 60px rgba(15,99,182,0.5);
+}
+
+.image2{
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
+  top:-50px
+}
+
+.image3{
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
+  left: 60px;
+}
+
+.move-right {
+    position: relative;
+    animation: moveLeftToRight 10s linear infinite;
+}
+
+@keyframes moveLeftToRight {
+    0% {
+        left: 250px;
+    }
+    50% {
+        left: 350px;
+    }
+    100%{
+      left:250px
+    }
+}
+
+.move-top {
+    position: relative;
+    animation: movetoptobottom 4s linear infinite;
+}
+
+@keyframes movetoptobottom {
+    0% {
+        top: 120px;
+    }
+    50% {
+        top: 150px;
+    }
+    100%{
+      top:120px
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 968px) {
   .content-wrapper {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .content-section h1 {
     font-size: 2rem;
     text-align: center;
   }
-  
+
   .about-section {
     padding: 2rem 1rem;
   }
@@ -158,15 +219,15 @@ About.css
   .content-section h1 {
     font-size: 1.75rem;
   }
-  
+
   .image-container {
     padding: 1.5rem;
   }
-  
+
   .feature-item {
     gap: 0.75rem;
   }
-  
+
   .subtitle {
     font-size: 1rem;
   }
@@ -176,14 +237,18 @@ About.css
   .about-section {
     padding: 1rem;
   }
-  
+
   .content-section h1 {
     font-size: 1.5rem;
   }
-  
+
   .image-container {
     padding: 1rem;
   }
 }
-.h6{color: #004868;}
-.IoCopy{color: #004868;}
+.h6 {
+  color: #004868;
+}
+.IoCopy {
+  color: #004868;
+}

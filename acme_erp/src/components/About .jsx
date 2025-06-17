@@ -2,6 +2,9 @@ import React from 'react'
 import '../css/About.css'; // Import the CSS file
 import image1 from '../assets/img/normal/about_13_2.jpg';
 import { IoCopy } from "react-icons/io5";
+import aboutus from "../assets/img/bg/aboutus.jpg"
+import about2 from "../assets/img/normal/about_13_3.jpg"
+import about1 from "../assets/img/normal/about_13_2.jpg"
 const About = () => {
   return (
     <div className="about-section">
@@ -10,14 +13,14 @@ const About = () => {
           {/* Left side - Image */}
           <div className="image-side">
             <div className="image-container">
-              <div className="image-placeholder">
-                <img src="your-image-path.jpg" alt="ERP Dashboard" />
+              
+                {/* <img src="your-image-path.jpg" alt="ERP Dashboard" /> */}
                 {/* You can replace the placeholder with your actual images */}
-                <img src="image1.jpg" alt="Image 1" />
-                <img src="image2.jpg" alt="Image 2" />
-                <img src="image3.jpg" alt="Image 3" />
+                <img className='image1'  src={aboutus}  />
+                <img  className='image2 move-right' src={about2} alt="Image 2" />
+                <img  className='image3 move-top' src={about1} alt="Image 3" />
         
-              </div>
+              
             </div>
           </div>
 
