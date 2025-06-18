@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaUser, FaBars, FaTimes } from 'react-icons/fa';
 import '../css/Navbar.css';
 import Acme_logo from '../assets/acme_logo.svg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,12 +37,45 @@ const Navbar = () => {
 
         <div className={`navbar-collapse ${isMenuOpen ? 'show' : 'collapse'}`}>
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li className="nav-item"><a className="nav-link active" href="#home">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="#about">About Us</a></li>
-            <li className="nav-item"><a className="nav-link" href="#modules">Modules</a></li>
+            <li className="nav-item">
+              <a
+                className="nav-link active"
+                href="#hero"
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+                href="#about"
+                onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+              >
+                About Us
+              </a>
+            </li>
+            <li className="nav-item"><a className="nav-link" href="#cards"  onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('cards')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}>Modules</a></li>
             <li className="nav-item"><a className="nav-link" href="#customer">Customer</a></li>
             <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
-            <li className="nav-item"><a className="nav-link" href="#blog">Blog</a></li>
+            <li className="nav-item"><a className="nav-link" href="#blogpost"  onClick={e => {
+                  e.preventDefault();
+                  document.getElementById('blogpost')?.scrollIntoView({ behavior: 'smooth' });
+                  setIsMenuOpen(false);
+                }}
+                >Blog</a></li>
           </ul>
 
           <div className="navbar-nav">

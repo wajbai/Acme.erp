@@ -247,8 +247,169 @@ About.css .about-section {
   }
 }
 .h6 {
-  color: #004868;
+  color: #bcbdc0;
 }
 .IoCopy {
   color: #004868;
+}
+.suite-section {
+  margin-top: 4rem;
+  padding: 2rem 1rem;
+  background-color: #f1f5f9;
+}
+
+.suite-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.suite-item {
+  flex: 1;
+  min-width: 300px;
+}
+
+.suite-item h2 {
+  font-size: 1.75rem;
+  color: #141D38;
+  margin-bottom: 1rem;
+   font-weight: bold;
+}
+
+.suite-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .suite-container {
+    flex-direction: column;
+  }
+
+  .suite-item h2 {
+    font-size: 1.5rem;
+  }
+
+  .suite-item p {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Circular Marquee with Images - Fixed Version */
+.marquee-section {
+  margin-top: 2rem;
+  padding: 3rem 0;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #627179;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.marquee-container {
+  width: 100%;
+
+padding: 0;
+  position: relative;
+  background-color: #004868;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover {
+  /* animation-play-state: paused; */
+}
+
+.marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 300px;
+  margin: 2rem;
+  padding: 1rem;
+  background: rgb(255, 245, 245);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.org-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  /* border: 2px solid #004768; */
+  /* padding: 5px; */
+}
+
+.marquee-item span {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  white-space: normal;
+  max-width: 180px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3)); /* Adjusted for triple items */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marquee-item {
+    min-width: 150px;
+    margin: 0 1rem;
+  }
+  
+  .org-logo {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .marquee-item span {
+    font-size: 0.9rem;
+    max-width: 140px;
+  }
+  
+  @keyframes marquee {
+    100% {
+      transform: translateX(calc(-100% / 2.5)); /* Adjusted for mobile */
+    }
+  }
 }
