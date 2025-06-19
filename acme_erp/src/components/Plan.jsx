@@ -187,7 +187,6 @@ const Plan = () => {
         
         .yearly-toggle {
           position: absolute;
-          top: 30px;
           right: 30px;
           background: rgba(255, 255, 255, 0.2);
           border: 1px solid rgba(255, 255, 255, 0.3);

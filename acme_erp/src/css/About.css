@@ -1,9 +1,9 @@
-About.css .about-section {
+/* Base Styles */
+.about-section {
   min-height: 100vh;
   background-color: #f8f9fa;
-  display: flex;
-  align-items: center;
   padding: 4rem 1rem;
+  position: relative;
 }
 
 .container {
@@ -12,15 +12,19 @@ About.css .about-section {
   width: 100%;
 }
 
+/* Content Wrapper */
 .content-wrapper {
   display: flex;
   align-items: center;
   gap: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
-/* Left side - Image */
+/* Image Side */
 .image-side {
   flex: 1;
+  position: relative;
 }
 
 .image-container {
@@ -32,29 +36,57 @@ About.css .about-section {
   width: 550px;
   height: 400px;
   position: relative;
+  overflow: visible;
 }
 
-.image-placeholder {
-  aspect-ratio: 1;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  overflow: hidden;
+.image1 {
+  position: absolute;
+  top: -30px;
+  left: -50px;
+  width: 550px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 5px 5px 60px rgba(15, 99, 182, 0.5);
+  z-index: 1;
 }
 
-.image-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 1rem;
+.image2 {
+  position: absolute;
+  z-index: 3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
+  width: 250px;
+  height: auto;
+  right: -30px;
+  top: 50px;
+  animation: floatHorizontal 8s ease-in-out infinite;
 }
 
-/* Right side - Content */
+.image3 {
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
+  width: 200px;
+  height: auto;
+  left: 60px;
+  bottom: -30px;
+  animation: floatVertical 6s ease-in-out infinite;
+}
+
+/* Content Side */
 .content-side {
   flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.content-section h6 {
+  color: #bcbdc0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
 }
 
 .content-section h1 {
@@ -63,8 +95,6 @@ About.css .about-section {
   color: #1f2937;
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    sans-serif;
 }
 
 .subtitle {
@@ -74,6 +104,7 @@ About.css .about-section {
   line-height: 1.6;
 }
 
+/* Features */
 .features {
   margin-bottom: 2rem;
 }
@@ -85,21 +116,11 @@ About.css .about-section {
   margin-bottom: 1.5rem;
 }
 
-.feature-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 0.25rem;
-  flex-shrink: 0;
+.IoCopy {
+  color: #004868;
+  font-size: 1.5rem;
   margin-top: 0.25rem;
-}
-
-.feature-icon.primary {
-  background-color: #0d9488;
-}
-
-.feature-icon.secondary {
-  background-color: #9ca3af;
-  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .feature-text {
@@ -109,163 +130,22 @@ About.css .about-section {
   font-size: 1rem;
 }
 
-.arrow-button-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
-}
-
-.up-arrow-btn {
-  width: 3rem;
-  height: 3rem;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.up-arrow-btn:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.up-arrow-btn svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #6b7280;
-}
-
-.image1{
-  position: absolute;
-  top: -30px;
-  left: -50px;
-  width: 550px;  
-  border-radius: 15px;
-  box-shadow: 5px 5px 60px rgba(15,99,182,0.5);
-}
-
-.image2{
-  position: absolute;
-  z-index: 2;
-  border-radius: 10px;
-  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
-  top:-50px
-}
-
-.image3{
-  position: absolute;
-  z-index: 2;
-  border-radius: 10px;
-  box-shadow: 5px 5px 60px rgba(9, 59, 109, 0.5);
-  left: 60px;
-}
-
-.move-right {
-    position: relative;
-    animation: moveLeftToRight 10s linear infinite;
-}
-
-@keyframes moveLeftToRight {
-    0% {
-        left: 250px;
-    }
-    50% {
-        left: 350px;
-    }
-    100%{
-      left:250px
-    }
-}
-
-.move-top {
-    position: relative;
-    animation: movetoptobottom 4s linear infinite;
-}
-
-@keyframes movetoptobottom {
-    0% {
-        top: 120px;
-    }
-    50% {
-        top: 150px;
-    }
-    100%{
-      top:120px
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 968px) {
-  .content-wrapper {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .content-section h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .about-section {
-    padding: 2rem 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .content-section h1 {
-    font-size: 1.75rem;
-  }
-
-  .image-container {
-    padding: 1.5rem;
-  }
-
-  .feature-item {
-    gap: 0.75rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section {
-    padding: 1rem;
-  }
-
-  .content-section h1 {
-    font-size: 1.5rem;
-  }
-
-  .image-container {
-    padding: 1rem;
-  }
-}
-.h6 {
-  color: #bcbdc0;
-}
-.IoCopy {
-  color: #004868;
-}
+/* Suite Section */
 .suite-section {
   margin-top: 4rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   background-color: #f1f5f9;
+  border-radius: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .suite-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
 }
 
 .suite-item {
@@ -277,7 +157,7 @@ About.css .about-section {
   font-size: 1.75rem;
   color: #141D38;
   margin-bottom: 1rem;
-   font-weight: bold;
+  font-weight: 700;
 }
 
 .suite-item p {
@@ -286,38 +166,13 @@ About.css .about-section {
   color: #374151;
 }
 
-/* Responsive adjustment */
-@media (max-width: 768px) {
-  .suite-container {
-    flex-direction: column;
-  }
-
-  .suite-item h2 {
-    font-size: 1.5rem;
-  }
-
-  .suite-item p {
-    font-size: 0.95rem;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Circular Marquee with Images - Fixed Version */
+/* Marquee Section */
 .marquee-section {
-  margin-top: 2rem;
+  margin-top: 4rem;
   padding: 3rem 0;
   background-color: #fff;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .marquee-title {
@@ -330,12 +185,11 @@ About.css .about-section {
 
 .marquee-container {
   width: 100%;
-
-padding: 0;
-  position: relative;
+  padding: 2rem 0;
   background-color: #004868;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  overflow: hidden;
 }
 
 .marquee {
@@ -345,29 +199,30 @@ padding: 0;
   will-change: transform;
 }
 
-
-
 .marquee-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 300px;
-  margin: 2rem;
-  padding: 1rem;
-  background: rgb(255, 245, 245);
+  min-width: 250px;
+  margin: 0 2rem;
+  padding: 1.5rem;
+  background: white;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.marquee-item:hover {
+  transform: translateY(-5px);
 }
 
 .org-logo {
   width: 80px;
   height: 80px;
-  object-fit: contain;
+  object-fit: cover;
   margin-bottom: 1rem;
   border-radius: 50%;
-  /* border: 2px solid #004768; */
-  /* padding: 5px; */
+  border: 2px solid #f1f5f9;
 }
 
 .marquee-item span {
@@ -375,8 +230,25 @@ padding: 0;
   color: #333;
   font-weight: 500;
   text-align: center;
-  white-space: normal;
-  max-width: 180px;
+}
+
+/* Animations */
+@keyframes floatHorizontal {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(20px) translateY(-10px);
+  }
+}
+
+@keyframes floatVertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes marquee {
@@ -384,30 +256,141 @@ padding: 0;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 3)); /* Adjusted for triple items */
+    transform: translateX(calc(-100% / 3));
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .image-container {
+    width: 450px;
+    height: 350px;
+  }
+  
+  .image1 {
+    width: 450px;
+    left: -40px;
+  }
+  
+  .image2 {
+    width: 200px;
+    right: -20px;
+  }
+  
+  .image3 {
+    width: 180px;
+    left: 50px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .image-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .content-section h1 {
+    text-align: center;
+  }
+  
+  .suite-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .suite-item {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-section {
+    padding: 2rem 1rem;
+  }
+  
+  .content-section h1 {
+    font-size: 2rem;
+  }
+  
+  .image-container {
+    height: 300px;
+  }
+  
+  .image1 {
+    top: -20px;
+    left: -30px;
+  }
+  
+  .image2 {
+    width: 180px;
+    right: -15px;
+    top: 40px;
+  }
+  
+  .image3 {
+    width: 150px;
+    left: 40px;
+    bottom: -20px;
+  }
+  
   .marquee-item {
-    min-width: 150px;
+    min-width: 200px;
     margin: 0 1rem;
+    padding: 1rem;
   }
   
   .org-logo {
     width: 60px;
     height: 60px;
   }
+}
+
+@media (max-width: 575.98px) {
+  .content-section h1 {
+    font-size: 1.75rem;
+  }
   
-  .marquee-item span {
-    font-size: 0.9rem;
-    max-width: 140px;
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .image-container {
+    height: 200px;
+    
+  }
+  
+  .image1 {
+    top: -10px;
+    left: -120px;
+     width: 296px;
+  }
+  
+  .image2 {
+    width: 150px;
+    right: 90px;
+    width: 100px;
+    top: 10px;
+  }
+  
+  .image3 {
+    width: 120px;
+    left: 90px;
+    width: 80px;
+  }
+  
+  .marquee-title {
+    font-size: 1.5rem;
   }
   
   @keyframes marquee {
     100% {
-      transform: translateX(calc(-100% / 2.5)); /* Adjusted for mobile */
+      transform: translateX(calc(-100% / 2.5));
     }
   }
 }

@@ -15,6 +15,7 @@ import Review from './components/Review.jsx';
 import Streamlines from './components/Streamlines.jsx';
 import Finance from './page/finance.jsx';
 import Finance2 from './components/Finance2.jsx';
+import Contact from './components/contact.jsx';
 
 const Home = () => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/accounting" element={<Accounting />} />
         <Route path="/finance" element={<Finance />} />
              <Route path="/finance2" element={<Finance2 />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

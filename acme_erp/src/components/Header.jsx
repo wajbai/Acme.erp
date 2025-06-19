@@ -1,19 +1,19 @@
 import React from 'react';
-import { 
-  FaMapMarkerAlt, 
-  FaPhone, 
-  FaEnvelope, 
-  FaFacebookF, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaInstagram, 
-  FaYoutube, 
-  FaWhatsapp 
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaYoutube,
+  FaWhatsapp
 } from 'react-icons/fa';
-import '../css/Header.css'; // Assuming you have a CSS file for additional styles
+import '../css/Header.css'; 
 const Header = () => {
   return (
-    <header className="header-top bg-primary text-white py-2">
+    <header className="header-top  text-white py-2">
       <div className="container-fluid">
         <div className="row align-items-center">
           {/* Left side - Contact Information */}
@@ -33,7 +33,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Right side - Follow Us and Social Media Icons */}
           <div className="col-md-4">
             <div className="d-flex align-items-center justify-content-md-end justify-content-start">
@@ -62,8 +62,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      
-    
     </header>
   );
 };
