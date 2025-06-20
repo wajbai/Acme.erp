@@ -187,8 +187,8 @@
   width: 100%;
   padding: 2rem 0;
   background-color: #004868;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   overflow: hidden;
 }
 
@@ -383,14 +383,47 @@
     left: 90px;
     width: 80px;
   }
+  .content-section {
+    padding-top: 40px;
+  }
+  .content-section h6 ,.subtitle,.suite-item{
+    text-align: center  ;
+  }
+  .IoCopy{
+    margin: 0.1%;
+  }
+.marquee-title{
+   width: 270px; 
+   margin-top: -50px;
+   }
   
+  .marquee-item {
+    min-width: 150px;
+    padding: 0.5rem;
+  }
+  
+  .org-logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .marquee-container {
+    padding: 1rem 0;
+  }
+  
+  .marquee-item span {
+    font-size: 0.9rem;
+  }
+}
   .marquee-title {
     font-size: 1.5rem;
   }
-  
+  .marquee-container{
+    border-Top-left-radius: 15px;
+  border-Top-right-radius: 15px;
+  }
   @keyframes marquee {
     100% {
       transform: translateX(calc(-100% / 2.5));
     }
   }
-}

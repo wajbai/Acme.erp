@@ -28,12 +28,17 @@ const Question = () => {
 
                 {/* Right FAQ */}
                 <div className="col-md-6 faq-container">
-                    <h6 style={{ color: '#004868' }} >Frequently asked Question</h6>
-                    <h2 className="fw-bold" style={{ color: '#141D3' }}>Make Acme.erp Your Partner for Purpose-Driven Success</h2>
+                   <div style={{ textAlign: 'center' }}>
+  <h6 style={{ color: '#004868' }}>Frequently asked Question</h6>
+  <h2 className="fw-bold" style={{ color: '#141D3' }}>
+    Make Acme.erp Your Partner for Purpose-Driven Success
+  </h2>
+</div>
+
                     <div className="accordion mt-4">
                         {faqData.map((item, index) => (
                             <div key={index} className="faq-item mb-2">
-                                <div
+                                <div    
                                     className={`faq-question d-flex justify-content-between align-items-center p-3 border rounded${openIndex === index ? ' active' : ''}`}
                                     onClick={() => toggle(index)}
                                 >

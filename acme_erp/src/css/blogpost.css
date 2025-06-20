@@ -334,4 +334,9 @@
     top: 9rem;
   left: 6rem;
   }
+  .view-all-btn{
+    width: 200px;
+     margin-left: 55px;  
+  }
+  
 }

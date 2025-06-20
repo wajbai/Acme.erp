@@ -17,9 +17,11 @@ import Finance from './page/finance.jsx';
 import Finance2 from './components/Finance2.jsx';
 import Contact from './components/contact.jsx';
 
+import ScrollTrackerCircle from './ScrollTracker.jsx';
+
 const Home = () => {
   return (
-    <>
+    <>  <ScrollTrackerCircle />
       <div id="hero">
         <Hero />
       </div>
