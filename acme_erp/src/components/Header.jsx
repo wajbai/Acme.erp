@@ -39,22 +39,22 @@ const Header = () => {
             <div className="d-flex align-items-center justify-content-md-end justify-content-start">
               <span className="follow-text me-3">Follow Us On :</span>
               <div className="social-icons d-flex">
-                <a href="#" className="social-link me-2">
+                <a href="https://www.facebook.com/acme.erp.boscsoft/" className="social-link me-2">
                   <FaFacebookF />
                 </a>
-                <a href="#" className="social-link me-2">
+                <a href="https://x.com/i/flow/login?redirect_after_login=%2FBoscosoft1" className="social-link me-2">
                   <FaTwitter />
                 </a>
-                <a href="#" className="social-link me-2">
+                <a href="https://www.linkedin.com/showcase/acme-erp-accounting-management-software" className="social-link me-2">
                   <FaLinkedinIn />
                 </a>
-                <a href="#" className="social-link me-2">
+                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Facme.erp%2F%3Fnext%3D%252F&is_from_rle" className="social-link me-2">
                   <FaInstagram />
                 </a>
-                <a href="#" className="social-link me-2">
+                <a href="https://www.youtube.com/@boscosofttechnologies2022" className="social-link me-2">
                   <FaYoutube />
                 </a>
-                <a href="#" className="social-link">
+                <a href="https://www.whatsapp.com/channel/0029ValB9Yn6buMSw2fqOF2a" className="social-link">
                   <FaWhatsapp />
                 </a>
               </div>

@@ -16,8 +16,10 @@ import Streamlines from './components/Streamlines.jsx';
 import Finance from './page/finance.jsx';
 import Finance2 from './components/Finance2.jsx';
 import Contact from './components/contact.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 import ScrollTrackerCircle from './ScrollTracker.jsx';
+import Footer from './components/Footer .jsx';
 
 const Home = () => {
   return (
@@ -56,6 +58,7 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
+       <ScrollToTop /> 
       <Header />
        <Navbar />
       <Routes>
@@ -65,6 +68,7 @@ const App = () => {
              <Route path="/finance2" element={<Finance2 />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };

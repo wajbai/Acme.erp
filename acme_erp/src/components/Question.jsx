@@ -3,6 +3,18 @@ import '../css/Question.css';
 import chartImage from '../assets/img/bg/faqer.jpg';
 import { FaPlus } from "react-icons/fa";
 import { RiSubtractFill } from "react-icons/ri";
+import { motion, AnimatePresence } from "framer-motion";
+
+const faqItemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
+const answerVariants = {
+  hidden: { opacity: 0, height: 0 },
+  show: { opacity: 1, height: "auto", transition: { duration: 0.4, ease: "easeOut" } },
+  exit: { opacity: 0, height: 0, transition: { duration: 0.3, ease: "easeIn" } }
+};
 
 const Question = () => {
     const [openIndex, setOpenIndex] = useState(null);
@@ -22,22 +34,41 @@ const Question = () => {
         <div className="container py-5">
             <div className="row align-items-center">
                 {/* Left Image */}
-                <div className="col-md-6 text-center">
+                <motion.div
+                  className="col-md-6 text-center"
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
                     <img src={chartImage} alt="Charts" className="img-fluid faq-img" />
-                </div>
+                </motion.div>
 
                 {/* Right FAQ */}
-                <div className="col-md-6 faq-container">
+                <motion.div
+                  className="col-md-6 faq-container"
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.3 }}
+                >
                    <div style={{ textAlign: 'center' }}>
-  <h6 style={{ color: '#004868' }}>Frequently asked Question</h6>
-  <h2 className="fw-bold" style={{ color: '#141D3' }}>
-    Make Acme.erp Your Partner for Purpose-Driven Success
-  </h2>
-</div>
+                      <h6 style={{ color: '#004868' }}>Frequently asked Question</h6>
+                      <h2 className="fw-bold" style={{ color: '#141D3' }}>
+                        Make Acme.erp Your Partner for Purpose-Driven Success
+                      </h2>
+                   </div>
 
                     <div className="accordion mt-4">
                         {faqData.map((item, index) => (
-                            <div key={index} className="faq-item mb-2">
+                            <motion.div
+                              key={index}
+                              className="faq-item mb-2"
+                              variants={faqItemVariants}
+                              initial="hidden"
+                              whileInView="show"
+                              viewport={{ once: true, amount: 0.2 }}
+                            >
                                 <div    
                                     className={`faq-question d-flex justify-content-between align-items-center p-3 border rounded${openIndex === index ? ' active' : ''}`}
                                     onClick={() => toggle(index)}
@@ -45,15 +76,24 @@ const Question = () => {
                                     <span>{item.question}</span>
                                     <span className="faq-icon">{openIndex === index ? <RiSubtractFill /> : <FaPlus />}</span>
                                 </div>
-                                {openIndex === index && (
-                                    <div className="faq-answer border rounded-bottom p-3">
+                                <AnimatePresence initial={false}>
+                                  {openIndex === index && (
+                                    <motion.div
+                                      className="faq-answer border rounded-bottom p-3"
+                                      key="answer"
+                                      variants={answerVariants}
+                                      initial="hidden"
+                                      animate="show"
+                                      exit="exit"
+                                    >
                                         {item.answer}
-                                    </div>
-                                )}
-                            </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

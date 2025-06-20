@@ -17,18 +17,26 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const headerOffset = 80; 
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+};
+
+
 
   const handleNavClick = (sectionId) => {
     setIsMenuOpen(false);
     if (location.pathname !== '/') {
       navigate('/');
-      // Wait for DOM to update after navigation
       setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       scrollToSection(sectionId);

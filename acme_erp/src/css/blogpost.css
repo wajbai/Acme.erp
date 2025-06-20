@@ -159,8 +159,8 @@
   color: #004868;
   border: none;
   border-radius: 50%;
-  width: 150px;
-  height: 50px;
+  width: 110px !important;
+  height: 50px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,10 +168,12 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 2;
+  margin: 20px;
 }
 
 .arrow-btn {
   transform: rotate(180deg);
+  
 }
 
 .arrow-btn:hover, .arrow-btn2:hover {

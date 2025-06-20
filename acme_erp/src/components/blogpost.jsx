@@ -8,7 +8,7 @@ import image2 from '../assets/img/blog/finance.jpg';
 import image3 from '../assets/img/blog/finance01.jpg';
 import { BiColor } from 'react-icons/bi';
 import { FaArrowLeftLong } from "react-icons/fa6";
-// import image4 from '../assets/img/bg/aboutus.jpg'; // Add your own image here
+import image4 from '../assets/img/bg/aboutus.jpg'; 
 
 const blogPosts = [
   {
@@ -23,7 +23,7 @@ const blogPosts = [
     date: '15, 2024',
     title: 'Easy Ways to Manage Accounting for Non-profits, NGOs, and Religious Institutions',
     category: 'ACCOUNTING',
-    link: '/accounting' // Link to the Accounting page
+    link: '/accounting' 
   },
   {
     image: image3,
@@ -32,12 +32,12 @@ const blogPosts = [
     category: 'FINANCE',
      link: '/finance2'
   }
-  // ,  {
-  //     image: image4,
-  //     date: '17, 2024',
-  //     title: 'How Cloud Accounting Helps Nonprofits Stay Transparent and Efficient',
-  //     category: 'FINANCE',
-  //   }
+  ,  {
+      image: image4,
+      date: '17, 2024',
+      title: 'How Cloud Accounting Helps Nonprofits Stay Transparent and Efficient',
+      category: 'FINANCE',
+    }
 ];
 
 const BlogPost = () => {
