@@ -4,6 +4,7 @@
   scroll-behavior: smooth;
   padding: 2rem 0;
   scroll-snap-type: x mandatory;
+  /* width: 1200px; */
 }
 
 .cards-scroll-wrapper::-webkit-scrollbar {

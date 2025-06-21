@@ -361,6 +361,17 @@
     right: -6rem;
   }
 }
+@media(max-width: 425px) {
+.ring-1, .ring-2 {
+    width: 20px;
+    height: 20px;
+  }
+  .ring-1{
+    top: 420px;
+    right: 500px;
+  }
+}
+  
 
 /* Very small devices (phones, 400px and down) */
 @media (max-width: 400px) {

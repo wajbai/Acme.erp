@@ -3,6 +3,7 @@ import { FaUser, FaBars, FaTimes } from 'react-icons/fa';
 import '../css/Navbar.css';
 import Acme_logo from '../assets/acme_logo.svg';
 import { Link,useNavigate, useLocation } from 'react-router-dom';
+import { color } from 'framer-motion';
 
 
 
@@ -60,6 +61,7 @@ const scrollToSection = (id) => {
           <div className="logo-container">
             <img src={Acme_logo} alt="ACME Logo" className="logo-svg" />
           </div>
+          <div className='logo-text'> Acme.erp</div>
         </div>
 
         <button className="navbar-toggler border-0 p-0" onClick={toggleMenu}>
@@ -89,30 +91,14 @@ const scrollToSection = (id) => {
           </ul>
           <div className="navbar-nav">
           <button
-              onClick={() => window.location.href = 'https://acmeerp.org/login.html'}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                backgroundColor: isHovered ? '#141D38' : '#1e5e7e',
-                color: 'white',
-                border: 'none',
-                padding: '10px 24px',
-                borderRadius: '25px',
-                fontWeight: 500,
-                fontSize: '14px',
-                transition: 'all 0.3s ease',
-                boxShadow: isHovered
-                  ? '0 4px 8px rgba(30, 94, 126, 0.3)'
-                  : '0 2px 4px rgba(30, 94, 126, 0.2)',
-                transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
-                display: 'flex',
-                alignItems: 'center',
-                cursor: 'pointer',
-              }}
-            >
-              <FaUser style={{ marginRight: '0.5rem' }} size={14} />
-              Login
-            </button>
+      className={`login-button ${isHovered ? 'hovered' : ''}`}
+      onClick={() => window.location.href = 'https://acmeerp.org/login.html'}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <FaUser className="login-icon" size={14} />
+      Login
+    </button>
           </div>
         </div>
       </div>
