@@ -214,7 +214,8 @@
         }
         @media (max-width: 400px) {
              .yearly-toggle{
-            top: 331rem;
+            top: 320rem;
+            position :static;
             
            }
          

@@ -324,6 +324,8 @@
 }
 
 /* Extra small devices (portrait phones, 575.98px and down) */
+
+
 @media (max-width: 575.98px) {
   .hero-title {
     font-size: 1.75rem;
@@ -360,6 +362,10 @@
     height: 300px;
     right: -6rem;
   }
+  .logo-text {
+    top: 58px !important;
+    left: 30px  !important;
+  }
 }
 @media(max-width: 425px) {
 .ring-1, .ring-2 {
@@ -367,11 +373,21 @@
     height: 20px;
   }
   .ring-1{
-    top: 420px;
+    top: 55%;
     right: 500px;
   }
 }
-  
+
+@media (max-width: 768px){
+   .ring-1{
+    display: none !important;
+   }
+   .ring-2{
+    display: none !important;
+   }
+}
+ 
+ 
 
 /* Very small devices (phones, 400px and down) */
 @media (max-width: 400px) {
@@ -388,18 +404,7 @@
     width: 100%;
     max-width: 250px;
   }
-  .ring-1 {
-    width: 20px;
-    height: 20px;
-    top: 55%;
-    left: 48%;
-  }
-  .ring-2 {
-    width: 20px;
-    height: 20px;
-    top: 53.5%;
-    left: 48%;
-  }
+
   .square-1{
      width: 400px;
   height: 500px;

@@ -313,3 +313,28 @@
     display: flex;
   }
 }
+@media (max-width: 550px)
+{
+  .line-between-arrows {
+    display: none;
+  }
+  .nav-arrow{
+    display: none;
+  } 
+  .circle-indicator {
+    width: 60px;
+    height: 60px;
+
+  }
+  .review-indicator-container .circle-indicator {
+    display: none;
+  }
+  .review-indicator-container {
+    justify-content: center;
+    gap: 0;
+  }
+  .review-indicator-container .circle-indicator.active {
+    display: flex;
+  }
+
+}

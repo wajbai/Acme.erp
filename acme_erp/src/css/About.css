@@ -427,3 +427,38 @@
       transform: translateX(calc(-100% / 2.5));
     }
   }
+ 
+
+
+  @media (max-width: 730px) {
+    
+  .image1 {
+    top: -10px;
+    left: -120px;
+     width: 296px;
+  }
+  
+  .image2 {
+    width: 150px;
+    right: 90px;
+    width: 100px;
+    top: 10px;
+  }
+  
+  .image3 {
+    width: 120px;
+    left: 90px;
+    width: 80px;
+  }
+  .image-container {
+    height: 200px;
+    
+  }
+  
+  }
+@media (max-width:570px){
+  .marquee-title{
+     text-align: center!important;
+     width: 100%;
+   }
+}

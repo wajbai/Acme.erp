@@ -52,3 +52,12 @@
     }
        
  }
+ @media (max-width:746px) {
+  .faq-img{
+        margin :-10px; 
+        width: 550px;      
+    }
+  .faq-container{
+    margin-top: 80px;
+  }
+ }

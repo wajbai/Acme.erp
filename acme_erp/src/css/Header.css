@@ -121,9 +121,9 @@
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 400px) {
-  .contact-text {
-    font-size: 11px;
+@media (max-width: 756px) {
+  .contact-info {
+    display: none !important;
   }
   
   .social-link {
