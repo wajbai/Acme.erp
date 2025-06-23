@@ -37,7 +37,7 @@ const scrollToSection = (id) => {
   const handleNavClick = (sectionId) => {
     setIsMenuOpen(false);
     if (location.pathname !== '/') {
-      navigate('/');
+      navigate('Acme.erp/');
       setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       scrollToSection(sectionId);

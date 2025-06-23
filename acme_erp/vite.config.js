@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/Acme.erp/',  // ✅ This line is REQUIRED for GitHub Pages
+  base: '/Acme.erp/',  
   plugins: [react()],
   server: {
     host: '0.0.0.0',

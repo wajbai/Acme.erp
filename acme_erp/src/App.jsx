@@ -23,7 +23,8 @@ import Footer from './components/Footer .jsx';
 
 const Home = () => {
   return (
-    <>  <ScrollTrackerCircle />
+    <> 
+     <ScrollTrackerCircle/>
       <div id="hero">
         <Hero />
       </div>
@@ -62,7 +63,7 @@ const App = () => {
       <Header />
        <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Acme.erp" element={<Home />} />
         <Route path="/accounting" element={<Accounting />} />
         <Route path="/finance" element={<Finance />} />
              <Route path="/finance2" element={<Finance2 />} />
