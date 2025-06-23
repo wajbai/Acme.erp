@@ -142,10 +142,23 @@
 }
 
 .company-logo {
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px; /* adjust as needed */
+  /* max-width: 100px; */
+  position: relative;
+    left: -20px;
+    top: -20px;
+    
+}
+
+.company-logo-img {
+   height: 55px;
+ border-radius: 5px;
+  object-fit: contain;
+   background-color: #fff;
+
 }
 
 .company-name {

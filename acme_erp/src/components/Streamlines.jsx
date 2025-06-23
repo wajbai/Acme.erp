@@ -44,8 +44,8 @@ const Streamlines = () => {
               <motion.div
                 key={index}
                 className="feature-box"
-                initial={{ opacity: 0, x: -90 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
               >
                 <span className="check-icon">&#x2713;</span> {item}
@@ -57,8 +57,8 @@ const Streamlines = () => {
               <motion.div
                 key={index}
                 className="feature-box"
-                initial={{ opacity: 0, x: 90 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 10 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
               >
                 <span className="check-icon">&#x2713;</span> {item}

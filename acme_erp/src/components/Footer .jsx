@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Facebook, Twitter, Linkedin, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import '../css/Footer.css';
+import companylogo from '../assets/img/0_Boscsoft.png';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -78,8 +79,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="company-logo">
-            <div className="company-name">boscosoft</div>
-            <div className="company-sub">Management Pvt. Ltd.</div>
+           <img src={companylogo} alt="Boscosoft Logo" className="company-logo-img" />
           </div>
         </div>
 
