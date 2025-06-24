@@ -74,14 +74,15 @@
 }
 
 .navbar-nav .nav-link {
-  color: #000000 !important;
-  font-weight: 500;
-  font-size: 16px;
+  color: #141D38 !important;
+  font-weight: 550;
+  font-size: 18px;
   padding: 4px 20px !important;
   margin: 0 5px;
   border-radius: 30px;
   transition: all 0.3s ease;
   position: relative;
+  
 }
 
 .navbar-nav .nav-link:hover {

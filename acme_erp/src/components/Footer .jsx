@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Facebook, Twitter, Linkedin, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import '../css/Footer.css';
 import companylogo from '../assets/img/0_Boscsoft.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -79,7 +80,7 @@ const Footer = () => {
             ))}
           </div>
           <div className="company-logo">
-           <img src={companylogo} alt="Boscosoft Logo" className="company-logo-img" />
+            <img src={companylogo} alt="Boscosoft Logo" className="company-logo-img" />
           </div>
         </div>
 
@@ -128,16 +129,28 @@ const Footer = () => {
             635 601
           </p>
           <p>+91 9626 800 800</p>
-          <a href="mailto:binfo@boscosofttech.com">binfo@boscosofttech.com</a>
+          <a href="https://boscosofttech.com/">binfo@boscosofttech.com</a>
         </div>
       </div>
 
       {/* Bottom Footer */}
       <div className="footer-bottom footer-container">
-        <div>Copyright © 2025 <span style={{ color: '#1e5e7e' }}>Boscosoft</span>. All Rights Reserved.</div>
+        <div>
+          Copyright © 2025{' '}
+          <a
+            href="https://boscosofttech.com/"
+            style={{ color: '#1e5e7e', textDecoration: 'none' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Boscosoft
+          </a>
+          . All Rights Reserved.
+        </div>
+
         <div className="footer-links">
-          <a href="#">Terms & Condition</a>
-          <a href="#">Privacy Policy</a>
+          <Link to="/Termscondition" className="nav-link btn btn-link">Terms & condition</Link>
+          <Link to="/Privacy-Policy" className="nav-link btn btn-link">Privacy Policy</Link>
         </div>
       </div>
     </footer>

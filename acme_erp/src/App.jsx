@@ -20,6 +20,9 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 
 import ScrollTrackerCircle from './ScrollTracker.jsx';
 import Footer from './components/Footer .jsx';
+import Tearmsconditions from './page/Tearmsconditions.jsx';
+import Privacy from './page/privacy.jsx';
+import Functional from './components/Functional .jsx';
 
 const Home = () => {
   return (
@@ -39,6 +42,9 @@ const Home = () => {
       </div>
       <div id="review">
         <Review />
+      </div>
+      <div id='Functional'>
+        <Functional/>
       </div>
       <div id="plan">
         <Plan />
@@ -66,8 +72,10 @@ const App = () => {
         <Route path="/Acme.erp" element={<Home />} />
         <Route path="/accounting" element={<Accounting />} />
         <Route path="/finance" element={<Finance />} />
-             <Route path="/finance2" element={<Finance2 />} />
+        <Route path="/finance2" element={<Finance2 />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/Termscondition" element={<Tearmsconditions />} />
+        <Route path='/Privacy-Policy' element={<Privacy/>} />
       </Routes>
       <Footer/>
     </Router>
