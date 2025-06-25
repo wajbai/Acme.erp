@@ -71,7 +71,7 @@ const App = () => {
       <Header />
        <Navbar />
       <Routes>
-        <Route path="/staging.acmeerp.org" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/accounting" element={<Accounting />} />
         <Route path="/finance" element={<Finance />} />
         <Route path="/finance2" element={<Finance2 />} />

@@ -37,7 +37,7 @@ const scrollToSection = (id) => {
   const handleNavClick = (sectionId) => {
     setIsMenuOpen(false);
     if (location.pathname !== '/') {
-      navigate('staging.acmeerp.org');
+      navigate('/');
       setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       scrollToSection(sectionId);
