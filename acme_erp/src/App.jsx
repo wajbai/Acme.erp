@@ -23,6 +23,7 @@ import Footer from './components/Footer .jsx';
 import Tearmsconditions from './page/Tearmsconditions.jsx';
 import Privacy from './page/privacy.jsx';
 import Functional from './components/Functional .jsx';
+import CustomCursor from './components/CustomCursor.jsx';
 
 const Home = () => {
   return (
@@ -65,6 +66,7 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
+       <CustomCursor />
        <ScrollToTop /> 
       <Header />
        <Navbar />

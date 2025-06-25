@@ -59,7 +59,7 @@ const Functional = () => {
         .flip-card {
           background-color: transparent;
           width: 100%;
-          height: 280px;
+          height: 210px;
           perspective: 1000px;
           margin-bottom: 30px;
         }
@@ -102,8 +102,8 @@ const Functional = () => {
          background: linear-gradient(135deg, #00ACD2 0%, #006BDD 100%);
           color: white;
           box-shadow: 
-            0 10px 40px rgba(102, 126, 234, 0.3),
-            0 20px 60px rgba(118, 75, 162, 0.2),
+             0 10px 40px rgba(147, 201, 251, 0.3),
+            0 20px 60px rgba(87, 208, 245, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
@@ -112,12 +112,12 @@ const Functional = () => {
           color: white;
           transform: rotateY(180deg);
           box-shadow: 
-            0 10px 40px rgba(240, 147, 251, 0.3),
-            0 20px 60px rgba(245, 87, 108, 0.2),
+            0 10px 40px rgba(147, 201, 251, 0.3),
+            0 20px 60px rgba(87, 208, 245, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
-        .feature-icon {
+        .feature-icons {
           font-size: 3rem;
           margin-bottom: 15px;
           filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
@@ -138,7 +138,7 @@ const Functional = () => {
           text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
-        .flip-card-back .feature-icon {
+        .flip-card-back .feature-icons {
           margin-bottom: 20px;
         }
 
@@ -177,7 +177,7 @@ const Functional = () => {
         .row {
           display: flex;
           flex-wrap: wrap;
-          margin: -15px;
+          // margin: -15px;
         }
 
         .col-lg-3 {
@@ -216,11 +216,11 @@ const Functional = () => {
         }
 
         .enhanced-shadow:hover .flip-card-front {
-          box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4), 0 30px 80px rgba(118, 75, 162, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+          box-shadow: 0 20px 60px rgba(102, 192, 234, 0.4), 0 30px 80px rgba(75, 123, 162, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
 
         .enhanced-shadow:hover .flip-card-back {
-          box-shadow: 0 20px 60px rgba(240, 147, 251, 0.4), 0 30px 80px rgba(245, 87, 108, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+          box-shadow: 0 20px 60px rgba(147, 166, 251, 0.4), 0 30px 80px rgba(87, 161, 245, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
       `}</style>
 
@@ -241,7 +241,7 @@ const Functional = () => {
         <motion.div className="flip-card enhanced-shadow" whileHover="hover">
           <div className="flip-card-inner">
             <div className="flip-card-front">
-              <motion.div className="feature-icon" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
+              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
                 {feature.icon}
               </motion.div>
               <motion.h3 className="feature-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
@@ -249,7 +249,7 @@ const Functional = () => {
               </motion.h3>
             </div>
             <div className="flip-card-back">
-              <motion.div className="feature-icon" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
+              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
                 {feature.icon}
               </motion.div>
               <motion.p className="feature-description" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.2 }}>
@@ -270,7 +270,7 @@ const Functional = () => {
             <motion.div className="flip-card enhanced-shadow" whileHover="hover">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <motion.div className="feature-icon" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
+                  <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
                     {features[i].icon}
                   </motion.div>
                   <motion.h3 className="feature-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
@@ -278,7 +278,7 @@ const Functional = () => {
                   </motion.h3>
                 </div>
                 <div className="flip-card-back">
-                  <motion.div className="feature-icon" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
+                  <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
                     {features[i].icon}
                   </motion.div>
                   <motion.p className="feature-description" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.2 }}>

@@ -61,7 +61,7 @@ const scrollToSection = (id) => {
           <div className="logo-container">
             <img src={Acme_logo} alt="ACME Logo" className="logo-svg" />
           </div>
-          <div className='logo-text'> Acme.erp</div>
+          {/* <div className='logo-text'> Acme.erp</div> */}
         </div>
 
         <button className="navbar-toggler border-0 p-0" onClick={toggleMenu}>
@@ -92,7 +92,7 @@ const scrollToSection = (id) => {
           <div className="navbar-nav">
           <button
       className={`login-button ${isHovered ? 'hovered' : ''}`}
-      onClick={() => window.location.href = 'https://acmeerp.org/login.html'}
+      onClick={() => window.location.href = 'https://staging.acmeerp.org/Account/portal/default.aspx'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
