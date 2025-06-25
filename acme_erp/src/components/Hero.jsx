@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import hero from '../assets/home_ills.png'; 
+import hero from '../assets/account_hero03.png'; 
 import '../css/Hero.css'; 
 
 const Hero = () => {
@@ -87,7 +87,7 @@ const Hero = () => {
               src={hero}
               alt="Accounting Illustration"
               className="hero-image"
-              style={{ maxHeight: 400, objectFit: 'contain' }}
+              style={{ maxHeight: 600, objectFit: 'contain' }}
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}

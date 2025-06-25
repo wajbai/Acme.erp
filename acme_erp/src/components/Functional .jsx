@@ -1,28 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   FaChartBar, FaMoneyBillWave, FaClipboardList, FaNetworkWired, FaMobileAlt,
   FaGem, FaGlobe, FaLink, FaChartLine, FaComments, FaBriefcase,
-  FaExclamationTriangle, FaRegFileAlt, FaCogs 
+  FaExclamationTriangle, FaRegFileAlt, FaCogs
 } from 'react-icons/fa';
 
 const Functional = () => {
   const features = [
-  { id: 1, title: "Book Keeping", description: "Helps Maintaining day to day account books", icon: <FaChartBar /> },
-  { id: 2, title: "Payroll", description: "Processing of Wages and Monthly Salary made easier with Easy Handling of Attendance and Loans", icon: <FaMoneyBillWave /> },
-  { id: 3, title: "Asset Tracking", description: "Keep track of the value changes in your assets and Insurance, AMC, Depreciation and maintenance of them", icon: <FaClipboardList /> },
-  { id: 4, title: "Networking", description: "Helps to Keep in touch constantly with Donors through Email, SMS and Letters", icon: <FaNetworkWired /> },
-  { id: 5, title: "Monitoring", description: "Helps Monitoring Branches/Communities from Head Office on Accounting and other Aspects", icon: <FaMobileAlt /> },
-  { id: 6, title: "Consolidation", description: "Consolidation of Accounts across the Branches under a Head office made easier", icon: <FaGem /> },
-  { id: 7, title: "Foreign Contribution", description: "Foreign Contribution management is made simpler and the Reports are generated instantly", icon: <FaGlobe /> },
-  { id: 8, title: "Third Party Integration", description: "Integration and Migration of Accounts Data with third party Application is made available for Automating", icon: <FaLink /> },
-  { id: 9, title: "Report Generation", description: "Reports needed for Auditing are made available with in few key stroke and User Friendly options are made for", icon: <FaChartLine /> },
-  { id: 10, title: "Communication", description: "Helps in Communicating with Sub-Centers easily and pass on the information", icon: <FaComments /> },
-  { id: 11, title: "Budgeting", description: "Budgeting and Cost Centers are Made Easier to keep the finance in control and to track in depth", icon: <FaBriefcase /> },
-  { id: 12, title: "Alerts", description: "Alerts and reminders are given for any schedules like Data Submission, Correction, Investment Renewal, etc...", icon: <FaExclamationTriangle /> },
-  { id: 13, title: "Policy Implementation", description: "Helps Head Offices to Implement Policies easily across the Multiple Branches", icon: <FaRegFileAlt /> },
-  { id: 14, title: "Customization", description: "We customize modules based on your specific needs.", icon: <FaCogs /> }
-];
+    { id: 1, title: "Book Keeping", description: "Helps Maintaining day to day account books", icon: <FaChartBar /> },
+    { id: 2, title: "Payroll", description: "Processing of Wages and Monthly Salary made easier with Easy Handling of Attendance and Loans", icon: <FaMoneyBillWave /> },
+    { id: 3, title: "Asset Tracking", description: "Keep track of the value changes in your assets and Insurance, AMC, Depreciation and maintenance of them", icon: <FaClipboardList /> },
+    { id: 4, title: "Networking", description: "Helps to Keep in touch constantly with Donors through Email, SMS and Letters", icon: <FaNetworkWired /> },
+    { id: 5, title: "Monitoring", description: "Helps Monitoring Branches/Communities from Head Office on Accounting and other Aspects", icon: <FaMobileAlt /> },
+    { id: 6, title: "Consolidation", description: "Consolidation of Accounts across the Branches under a Head office made easier", icon: <FaGem /> },
+    { id: 7, title: "Foreign Contribution", description: "Foreign Contribution management is made simpler and the Reports are generated instantly", icon: <FaGlobe /> },
+    { id: 8, title: "Third Party Integration", description: "Integration and Migration of Accounts Data with third party Application is made available for Automating", icon: <FaLink /> },
+    { id: 9, title: "Report Generation", description: "Reports needed for Auditing are made available with in few key stroke and User Friendly options are made for", icon: <FaChartLine /> },
+    { id: 10, title: "Communication", description: "Helps in Communicating with Sub-Centers easily and pass on the information", icon: <FaComments /> },
+    { id: 11, title: "Budgeting", description: "Budgeting and Cost Centers are Made Easier to keep the finance in control and to track in depth", icon: <FaBriefcase /> },
+    { id: 12, title: "Alerts", description: "Alerts and reminders are given for any schedules like Data Submission, Correction, Investment Renewal, etc...", icon: <FaExclamationTriangle /> },
+    { id: 13, title: "Policy Implementation", description: "Helps Head Offices to Implement Policies easily across the Multiple Branches", icon: <FaRegFileAlt /> },
+    { id: 14, title: "Customization", description: "We customize modules based on your specific needs.", icon: <FaCogs /> }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,39 +95,29 @@ const Functional = () => {
           justify-content: center;
           align-items: center;
           padding: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .flip-card-front {
-         background: linear-gradient(135deg, #00ACD2 0%, #006BDD 100%);
+          background: linear-gradient(135deg, #004868 0%, #004868 100%);
           color: white;
-          box-shadow: 
-             0 10px 40px rgba(147, 201, 251, 0.3),
-            0 20px 60px rgba(87, 208, 245, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .flip-card-back {
-           background: linear-gradient(135deg, #00ACD2 0%, #006BDD 100%);
-          color: white;
+          background: linear-gradient(135deg, #EFF6F9 0%, #EFF6F9 100%);
+          color: #004868;
           transform: rotateY(180deg);
-          box-shadow: 
-            0 10px 40px rgba(147, 201, 251, 0.3),
-            0 20px 60px rgba(87, 208, 245, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .feature-icons {
           font-size: 3rem;
           margin-bottom: 15px;
-          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
         .feature-title {
           font-size: 1.5rem;
           font-weight: bold;
           margin-bottom: 10px;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .feature-description {
@@ -135,7 +125,6 @@ const Functional = () => {
           line-height: 1.4;
           text-align: center;
           opacity: 0.95;
-          text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
 
         .flip-card-back .feature-icons {
@@ -152,14 +141,12 @@ const Functional = () => {
           font-weight: bold;
           color: #2c3e50;
           margin-bottom: 10px;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .section-subtitle {
           color: #7f8c8d;
           font-size: 1.1rem;
           font-weight: 500;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .features-container {
@@ -177,7 +164,6 @@ const Functional = () => {
         .row {
           display: flex;
           flex-wrap: wrap;
-          // margin: -15px;
         }
 
         .col-lg-3 {
@@ -212,90 +198,71 @@ const Functional = () => {
         }
 
         .enhanced-shadow:hover {
-          transform: translateY(-8px) scale(1.02);
-        }
-
-        .enhanced-shadow:hover .flip-card-front {
-          box-shadow: 0 20px 60px rgba(102, 192, 234, 0.4), 0 30px 80px rgba(75, 123, 162, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .enhanced-shadow:hover .flip-card-back {
-          box-shadow: 0 20px 60px rgba(147, 166, 251, 0.4), 0 30px 80px rgba(87, 161, 245, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+          transform: translateY(-6px) scale(1.01);
         }
       `}</style>
 
       <div className="features-container">
         <div className="container">
           <motion.div className="section-header" initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-            <motion.p className="section-subtitle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }}>Functional Suite</motion.p>
-            <motion.h1 className="section-title" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.6, type: "spring" }}>
-              Acme.erp Features
-            </motion.h1>
+            <motion.p className="section-subtitle">Functional Suite</motion.p>
+            <motion.h1 className="section-title">Acme.erp Features</motion.h1>
           </motion.div>
 
           <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
             {features.map((feature, index) => {
-  if (index < 12) {
-    return (
-      <motion.div key={feature.id} className="col-lg-3" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-        <motion.div className="flip-card enhanced-shadow" whileHover="hover">
-          <div className="flip-card-inner">
-            <div className="flip-card-front">
-              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
-                {feature.icon}
-              </motion.div>
-              <motion.h3 className="feature-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-                {feature.title}
-              </motion.h3>
-            </div>
-            <div className="flip-card-back">
-              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
-                {feature.icon}
-              </motion.div>
-              <motion.p className="feature-description" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.2 }}>
-                {feature.description}
-              </motion.p>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    );
-  }
-
-  if (index === 12) {
-    return (
-      <div className="row justify-content-center w-100" key="last-row">
-        {[12, 13].map((i) => (
-          <motion.div key={features[i].id} className="col-lg-4" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <motion.div className="flip-card enhanced-shadow" whileHover="hover">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
-                    {features[i].icon}
+              if (index < 12) {
+                return (
+                  <motion.div key={feature.id} className="col-lg-3" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <motion.div className="flip-card enhanced-shadow" whileHover="hover">
+                      <div className="flip-card-inner">
+                        <div className="flip-card-front">
+                          <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
+                            {feature.icon}
+                          </motion.div>
+                          <motion.h3 className="feature-title">{feature.title}</motion.h3>
+                        </div>
+                        <div className="flip-card-back">
+                          <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
+                            {feature.icon}
+                          </motion.div>
+                          <motion.p className="feature-description">{feature.description}</motion.p>
+                        </div>
+                      </div>
+                    </motion.div>
                   </motion.div>
-                  <motion.h3 className="feature-title" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
-                    {features[i].title}
-                  </motion.h3>
-                </div>
-                <div className="flip-card-back">
-                  <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
-                    {features[i].icon}
-                  </motion.div>
-                  <motion.p className="feature-description" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1, duration: 0.2 }}>
-                    {features[i].description}
-                  </motion.p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
+                );
+              }
 
-  return null;
-})}
+              if (index === 12) {
+                return (
+                  <div className="row justify-content-center w-100" key="last-row">
+                    {[12, 13].map((i) => (
+                      <motion.div key={features[i].id} className="col-lg-4" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <motion.div className="flip-card enhanced-shadow" whileHover="hover">
+                          <div className="flip-card-inner">
+                            <div className="flip-card-front">
+                              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
+                                {features[i].icon}
+                              </motion.div>
+                              <motion.h3 className="feature-title">{features[i].title}</motion.h3>
+                            </div>
+                            <div className="flip-card-back">
+                              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
+                                {features[i].icon}
+                              </motion.div>
+                              <motion.p className="feature-description">{features[i].description}</motion.p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+                );
+              }
 
+              return null;
+            })}
           </motion.div>
         </div>
       </div>

@@ -37,7 +37,7 @@ const scrollToSection = (id) => {
   const handleNavClick = (sectionId) => {
     setIsMenuOpen(false);
     if (location.pathname !== '/') {
-      navigate('Acme.erp/');
+      navigate('staging.acmeerp.org');
       setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       scrollToSection(sectionId);
@@ -92,7 +92,7 @@ const scrollToSection = (id) => {
           <div className="navbar-nav">
           <button
       className={`login-button ${isHovered ? 'hovered' : ''}`}
-      onClick={() => window.location.href = 'https://staging.acmeerp.org/Account/portal/default.aspx'}
+      onClick={() => window.location.href = 'https://staging.acmeerp.org/login.html'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
