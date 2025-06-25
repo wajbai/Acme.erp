@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Mail, Facebook, Twitter, Linkedin, Instagram, Youtube, MessageCircle } from 'lucide-react';
 import '../css/Footer.css';
 import companylogo from '../assets/img/0_Boscsoft.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [isHovered, setIsHovered] = useState(false);
-
+const navigate = useNavigate();
+const location = useLocation();
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -18,10 +19,18 @@ const Footer = () => {
     }
   };
 
-  const handleNavClick = (sectionId) => {
-    scrollToSection(sectionId);
-  };
-
+  
+const handleNavClick = (sectionId) => {
+  if (location.pathname !== '/') {
+    navigate('/', { state: { scrollTo: sectionId } });
+  } else {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: offset, behavior: 'smooth' });
+    }
+  }
+};
   const handleSubscribe = (e) => {
     e.preventDefault();
     console.log('Subscribing email:', email);

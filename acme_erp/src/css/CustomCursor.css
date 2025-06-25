@@ -5,8 +5,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 30px;
-  height: 30px;
+  width: 23px;
+  height: 23px;
   border: 1px solid rgba(30, 94, 126, 0.8);
   border-radius: 50%;
   pointer-events: none;

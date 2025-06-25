@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import hero from '../assets/account_hero03.png';
+import { useNavigate } from 'react-router-dom';
 import '../css/Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -61,6 +63,7 @@ const Hero = () => {
                   className="btn btn-primary btn-trial"
                   whileHover={{ scale: 1.07 }}
                   whileTap={{ scale: 0.97 }}
+                   onClick={() => navigate('/contact')}
                 >
                   Free Trial
                 </motion.button>

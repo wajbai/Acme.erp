@@ -20,7 +20,7 @@
         .contact-icon {
           width: 60px;
           height: 60px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1E5E7E 0%, #1E5E7E 100%);
           border-radius: 12px;
           display: flex;
           align-items: center;
@@ -28,6 +28,7 @@
           color: white;
           font-size: 24px;
           margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(30, 94, 126, 0.6);
         }
         
         .contact-title {
@@ -91,11 +92,11 @@
         }
         
         .btn-send {
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #1E5E7E 0%, #1E5E7E 100%);
           border: none;
           padding: 15px 40px;
           border-radius: 10px;
-          color: white;
+          color: white !important;
           font-weight: 600;
           font-size: 16px;
           transition: all 0.3s ease;
