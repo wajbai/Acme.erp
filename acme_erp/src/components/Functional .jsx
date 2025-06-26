@@ -58,8 +58,8 @@ const Functional = () => {
       <style jsx>{`
         .flip-card {
           background-color: transparent;
-          width: 100%;
-          height: 210px;
+          width: 75%;
+          height: 180px;
           perspective: 1000px;
           margin-bottom: 30px;
         }
@@ -110,12 +110,12 @@ const Functional = () => {
         }
 
         .feature-icons {
-          font-size: 3rem;
+          font-size: 2.5rem;
           margin-bottom: 15px;
         }
 
         .feature-title {
-          font-size: 1.5rem;
+          font-size: 1.1rem;
           font-weight: bold;
           margin-bottom: 10px;
         }

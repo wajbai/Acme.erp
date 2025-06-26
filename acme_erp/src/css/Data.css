@@ -24,12 +24,12 @@
 }
 
 .stat-box h2 {
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 750;
   margin: 0;
   line-height: 1;
   color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 4px rgba(31, 27, 27, 0.2);
 }
 
 .stat-box p {

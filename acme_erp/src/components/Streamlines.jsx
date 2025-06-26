@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import '../css/Streamlines.css';
 
@@ -20,15 +20,22 @@ const featuresRight = [
 
 const Streamlines = () => {
   const ref = useRef(null);
-
-  // Remove once:true to trigger every time element is in view
   const isInView = useInView(ref, { margin: '-100px' });
+
+  // ✅ Detect if the screen is mobile-sized
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={!isMobile && isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="streamline-section text-white text-center py-5"
     >
@@ -44,8 +51,8 @@ const Streamlines = () => {
               <motion.div
                 key={index}
                 className="feature-box"
-                initial={{ opacity: 0, x: -10 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: isMobile ? 0 : -10 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isMobile ? 0 : -10 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
               >
                 <span className="check-icon">&#x2713;</span> {item}
@@ -57,8 +64,8 @@ const Streamlines = () => {
               <motion.div
                 key={index}
                 className="feature-box"
-                initial={{ opacity: 0, x: 10 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
+                initial={{ opacity: 0, x: isMobile ? 0 : 10 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isMobile ? 0 : 10 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
               >
                 <span className="check-icon">&#x2713;</span> {item}
