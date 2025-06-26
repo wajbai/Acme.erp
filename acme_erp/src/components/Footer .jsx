@@ -112,21 +112,25 @@ const handleNavClick = (sectionId) => {
         </div>
 
         {/* Other Products */}
-        <div>
-          <h3>Other Products & Services</h3>
-          <ul>
-            {[
-              'School Management Software',
-              'College Management Software',
-              'Church Management Software',
-              'Accounting Management Software',
-              'Web Design & App Development',
-              'Mobile App Development and Modularization'
-            ].map((item, index) => (
-              <li key={index}><a href="#">▷ {item}</a></li>
-            ))}
-          </ul>
-        </div>
+       {/* Other Products */} 
+<div>
+  <h3>Other Products & Services</h3>
+  <ul>
+    {[
+      { label: 'School Management Software', url: 'https://www.smartschoolonline.com/' },
+      { label: 'College Management Software', url: 'https://higrade.live/' },
+      { label: 'Church Management Software', url: 'https://cristoerp.com/' },
+      { label: 'Accounting Management Software', url: 'https://www.boscosofttech.com/services/web-development' },
+      { label: 'Web Design & App Development', url: 'https://www.boscosofttech.com/services/web-development' },
+      { label: 'Mobile App Development and Modularization', url: 'https://www.boscosofttech.com/services/mobile-app' }
+    ].map((item, index) => (
+      <li key={index}>
+        <a href={item.url} target="_blank" rel="noopener noreferrer">▷ {item.label}</a>
+      </li>
+    ))}
+  </ul>
+</div>
+
 
         {/* Address */}
         <div>

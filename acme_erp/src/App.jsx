@@ -24,6 +24,7 @@ import Tearmsconditions from './page/Tearmsconditions.jsx';
 import Privacy from './page/privacy.jsx';
 import Functional from './components/Functional .jsx';
 import CustomCursor from './components/CustomCursor.jsx';
+import Chatbot from './components/Chatbot.jsx';
 
 const Home = () => {
   return (
@@ -66,8 +67,10 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
+        <Chatbot />
        <CustomCursor />
        <ScrollToTop /> 
+     
       <Header />
        <Navbar />
       <Routes>
@@ -79,7 +82,7 @@ const App = () => {
         <Route path="/Termscondition" element={<Tearmsconditions />} />
         <Route path='/Privacy-Policy' element={<Privacy/>} />
       </Routes>
-      <Footer/>
+      <Footer/>      
     </Router>
   );
 };

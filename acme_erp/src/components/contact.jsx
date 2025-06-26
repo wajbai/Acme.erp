@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import contactBg from '../assets/img/bg/contact_bg_1.png';
-import '../css/Contact.css';    
+import '../css/Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,30 +14,48 @@ const Contact = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will get back to you soon.');
-    // Handle form submission here
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.send(
+      'service_aesl0pb',
+      'template_480i33k',
+      formData,
+      'HAt7sYcyqeRxEYEN-'
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      alert('Thank you! Your message has been sent.');
+      setFormData({
+        name: '',
+        organization: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    })
+    .catch((error) => {
+      console.error('FAILED...', error);
+      alert('Oops! Something went wrong. Please try again.');
+    });
   };
 
   return (
     <>
-      {/* Bootstrap CSS */}
-      <link 
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
-        rel="stylesheet" 
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+        rel="stylesheet"
       />
-      <link 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        rel="stylesheet" 
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet"
       />
-
 
       <div className="container-fluid py-5" style={{ minHeight: '100vh' }}>
         <div className="container">
@@ -88,20 +107,19 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Trial Section */}
-          <div className="row contact-bg" >
-            <div className="col-lg-8" >
-
+          {/* Contact Form */}
+          <div className="row contact-bg">
+            <div className="col-lg-8">
               <div className="trial-section position-relative">
                 <div className="floating-elements">
                   <div className="floating-shape shape-1"></div>
                   <div className="floating-shape shape-2"></div>
                   <div className="floating-shape shape-3"></div>
                 </div>
-                
+
                 <h2 className="trial-title">Join now for a free trial</h2>
-                
-                <div>
+
+                <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
                       <div className="input-group">
@@ -115,10 +133,11 @@ const Contact = () => {
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
+                          required
                         />
                       </div>
                     </div>
-                    
+
                     <div className="col-md-6 mb-3">
                       <div className="input-group">
                         <span className="input-group-text">
@@ -131,6 +150,7 @@ const Contact = () => {
                           name="organization"
                           value={formData.organization}
                           onChange={handleInputChange}
+                          required
                         />
                       </div>
                     </div>
@@ -149,10 +169,11 @@ const Contact = () => {
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
+                          required
                         />
                       </div>
                     </div>
-                    
+
                     <div className="col-md-6 mb-3">
                       <div className="input-group">
                         <span className="input-group-text">
@@ -165,6 +186,7 @@ const Contact = () => {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
+                          required
                         />
                       </div>
                     </div>
@@ -182,30 +204,30 @@ const Contact = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
+                        required
                         style={{ borderRadius: '0 10px 10px 0' }}
                       ></textarea>
                     </div>
                   </div>
 
-                  <button onClick={handleSubmit} className="btn btn-send">
+                  <button type="submit" className="btn btn-send">
                     <i className="fas fa-paper-plane me-2"></i>
                     Send Message
                   </button>
-                </div>
+                </form>
               </div>
             </div>
-
-            
           </div>
 
           {/* Map Section */}
-          <div className="map-container">
+          <div className="map-container mt-5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d622.4190281391565!2d78.631636!3d12.5866634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3badaaea950786f3%3A0x5f3b489cca9a30a2!2sBosco%20Soft%20Technologies%20Pvt.%20Ltd.!5e1!3m2!1sen!2sin!4v1718738464156!5m2!1sen!2sin"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Bosco Soft Technologies Location"
+              style={{ width: '100%', height: '400px', border: '0' }}
             ></iframe>
           </div>
         </div>

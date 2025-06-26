@@ -327,13 +327,13 @@ const TermsConditions = () => {
       </div>
 
       {/* Scroll to Top Button */}
-      <button 
+      {/* <button 
         style={styles.scrollTopButton}
         onClick={scrollToTop}
         aria-label="Scroll to top"
       >
         ↑
-      </button>
+      </button> */}
     </div>
   );
 };
