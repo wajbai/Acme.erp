@@ -89,11 +89,11 @@ margin-top: -60px;
 }
 
 .hero-image {
-  max-width: 100%;
   height: auto;
-  position: relative;
+  position:relative;
   z-index: 5;
 }
+
 
 /* Floating Background Elements */
 .hero-bg-elements {

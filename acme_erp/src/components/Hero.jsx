@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import hero from '../assets/account_hero03.png';
+import hero from '../assets/img/blog/financial.png';
 import { useNavigate } from 'react-router-dom';
 import '../css/Hero.css';
 
@@ -26,7 +26,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-              
+
               >
                 Welcome to Acme.erp
               </motion.div>
@@ -64,7 +64,7 @@ const Hero = () => {
                   className="btn btn-primary btn-trial"
                   whileHover={{ scale: 1.07 }}
                   whileTap={{ scale: 0.97 }}
-                   onClick={() => navigate('/contact')}
+                  onClick={() => navigate('/contact')}
                 >
                   Free Trial
                 </motion.button>
@@ -89,17 +89,17 @@ const Hero = () => {
           </div>
 
           {/* Right Illustration */}
-          <div className="col-lg-5 col-md-12 ps-lg-4 d-flex justify-content-center align-items-center">
+          <div className="col-lg-5"><div className="d-flex justify-content-center">
             <motion.img
               src={hero}
               alt="Accounting Illustration"
               className="hero-image"
-              style={{ maxHeight: 600, objectFit: 'contain' }}
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
             />
-          </div>
+
+          </div></div>
         </div>
       </div>
 

@@ -25,6 +25,7 @@ import Privacy from './page/privacy.jsx';
 import Functional from './components/Functional .jsx';
 import CustomCursor from './components/CustomCursor.jsx';
 import Chatbot from './components/Chatbot.jsx';
+import MapIndia from '../src/components/MapIndia.jsx';
 
 const Home = () => {
   return (
@@ -81,6 +82,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/Termscondition" element={<Tearmsconditions />} />
         <Route path='/Privacy-Policy' element={<Privacy/>} />
+        <Route path='/map' element={<MapIndia/>} />
       </Routes>
       <Footer/>      
     </Router>
