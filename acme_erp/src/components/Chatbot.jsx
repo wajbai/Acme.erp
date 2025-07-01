@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../css/Chatbot.css";
+import botAvatar from '../assets/img/acme_logo.svg'; 
 
 const N8N_CHAT_URL = "https://wajbai.app.n8n.cloud/webhook/5f1c0c82-0ff9-40c7-9e2e-b1a96ffe24cd/chat";
 
@@ -64,21 +65,28 @@ function Chatbot() {
   const handleOpen = () => {
     setOpen(true);
     if (messages.length === 0) {
-      const welcomeMsg = { sender: "bot", text: "👋 Welcome to Acme ERP, how can I help you?" };
+      const welcomeMsg = {
+        sender: "bot",
+        text: "👋 Hi there! I’m Acme’s AI Assistant. How can I support you today?",
+      };
       setMessages([welcomeMsg]);
     }
+
   };
 
   return (
     <div>
       <div className="chatbot-toggle" onClick={handleOpen}>
-        Chat with us 💬
+        💬  Acme AI Assistant
       </div>
 
       {open && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <strong>Acme Chatbot</strong>
+            <div className="chatbot-header-title">
+              <img src={botAvatar} alt="Acme Bot" className="chatbot-avatar" />
+              <span>Acme AI Assistant</span>
+            </div>
             <button onClick={() => setOpen(false)} aria-label="Close" style={{ color: "#111" }}>
               ×
             </button>
@@ -99,9 +107,10 @@ function Chatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder={loading ? "Sending message..." : "Type your message..."}
+              placeholder={loading ? "Sending message..." : "Ask me anything about Acme ERP..."}
               disabled={loading}
             />
+
             <button onClick={sendMessage} disabled={loading || !input.trim()}>
               {loading ? "..." : "Send"}
             </button>

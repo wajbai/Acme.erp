@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
@@ -17,7 +18,6 @@ import Finance from './page/finance.jsx';
 import Finance2 from './components/Finance2.jsx';
 import Contact from './components/contact.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
-
 import ScrollTrackerCircle from './ScrollTracker.jsx';
 import Footer from './components/Footer .jsx';
 import Tearmsconditions from './page/Tearmsconditions.jsx';
@@ -45,6 +45,16 @@ const Home = () => {
       </div>
       <div id="review">
         <Review />
+      </div>
+      <div id="map">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false, amount: 0.3 }}
+        >
+          <MapIndia />
+        </motion.div>
       </div>
       <div id='Functional'>
         <Functional/>
@@ -82,7 +92,6 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/Termscondition" element={<Tearmsconditions />} />
         <Route path='/Privacy-Policy' element={<Privacy/>} />
-        <Route path='/map' element={<MapIndia/>} />
       </Routes>
       <Footer/>      
     </Router>
