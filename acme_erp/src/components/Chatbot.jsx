@@ -87,7 +87,7 @@ function Chatbot() {
               <img src={botAvatar} alt="Acme Bot" className="chatbot-avatar" />
               <span>Acme AI Assistant</span>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Close" style={{ color: "#111" }}>
+            <button className="X-button" onClick={() => setOpen(false)}  >
               ×
             </button>
           </div>

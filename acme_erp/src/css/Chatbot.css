@@ -39,6 +39,7 @@
   }
 }
 
+
 .chatbot-toggle:hover {
   background: linear-gradient(135deg, #00ACD2 0%, #1E5E7E  100%);
   transform: translateY(-50%) translateX(-4px);
@@ -153,11 +154,11 @@
 .chatbot-header button {
   background: rgba(255, 255, 255, 0.2);
   border: none;
-  font-size: 24px;
+  font-size: 20px;
   color: white;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 5px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;

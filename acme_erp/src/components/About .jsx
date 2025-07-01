@@ -53,7 +53,7 @@ const itemRightToLeft = {
 
 const About = () => {
   const width = useWindowWidth();
-  const isMobile = width < 750;
+  const isMobile = width < 1100;
 
   const organizations = [
     { name: "Sisters of St. Anne Madras", image: org1 },

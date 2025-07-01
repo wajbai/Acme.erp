@@ -27,50 +27,81 @@ import CustomCursor from './components/CustomCursor.jsx';
 import Chatbot from './components/Chatbot.jsx';
 import MapIndia from '../src/components/MapIndia.jsx';
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.8 },
+  viewport: { once: true, amount: 0.3 },
+};
 const Home = () => {
   return (
-    <> 
-     <ScrollTrackerCircle/>
+    <>
+      <ScrollTrackerCircle />
       <div id="hero">
-        <Hero />
+        <motion.div {...fadeInUp}>
+          <Hero />
+        </motion.div>
       </div>
+
       <div id="data">
-        <Data />
+        <motion.div {...fadeInUp}>
+          <Data />
+        </motion.div>
       </div>
+
       <div id="cards">
-        <Cards />
+        <motion.div {...fadeInUp}>
+          <Cards />
+        </motion.div>
       </div>
+
       <div id="about">
-        <About />
+          <About />
       </div>
+
       <div id="review">
-        <Review />
+        <motion.div {...fadeInUp}>
+          <Review />
+        </motion.div>
       </div>
+
       <div id="map">
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: false, amount: 0.3 }}
-        >
+        <motion.div {...fadeInUp}>
           <MapIndia />
         </motion.div>
       </div>
-      <div id='Functional'>
-        <Functional/>
+
+      <div id="Functional">
+        {/* <motion.div {...fadeInUp}> */}
+          <Functional />
+        {/* </motion.div> */}
       </div>
+
       <div id="plan">
-        <Plan />
+        <motion.div {...fadeInUp}>
+          <Plan />
+        </motion.div>
       </div>
+
       <div id="question">
-        <Question />
+      
+          <Question />
+      
       </div>
+
       <div id="streamlines">
-        <Streamlines />
+      
+          <Streamlines />
+       
       </div>
+
       <div id="blogpost">
-        <BlogPost />
+        <motion.div {...fadeInUp}>
+          <BlogPost />
+        </motion.div>
       </div>
+
+
     </>
   );
 };
@@ -78,12 +109,12 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
-        <Chatbot />
-       <CustomCursor />
-       <ScrollToTop /> 
-     
+      <Chatbot />
+      <CustomCursor />
+      <ScrollToTop />
+
       <Header />
-       <Navbar />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/accounting" element={<Accounting />} />
@@ -91,9 +122,9 @@ const App = () => {
         <Route path="/finance2" element={<Finance2 />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Termscondition" element={<Tearmsconditions />} />
-        <Route path='/Privacy-Policy' element={<Privacy/>} />
+        <Route path='/Privacy-Policy' element={<Privacy />} />
       </Routes>
-      <Footer/>      
+      <Footer />
     </Router>
   );
 };
