@@ -59,7 +59,8 @@ margin-bottom: 100px;
   font-size: 20px;
   font-weight: 1000;
   fill: #00ACD2;
-  pointer-events: none;
+ stroke: black;
+  stroke-width: 0.5;
 }
 
 .blink-state {
@@ -67,6 +68,7 @@ margin-bottom: 100px;
   stroke: rgb(230, 0, 19);
   stroke-width: 1;
   animation: blink 1.5s infinite;
+  
 }
 
 @keyframes blink {
@@ -124,8 +126,6 @@ margin-bottom: 100px;
   background-size: 200% auto;
   animation: shine 4s linear infinite;
 }
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .map-layout,

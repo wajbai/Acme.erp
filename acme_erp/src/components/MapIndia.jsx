@@ -192,7 +192,7 @@ const MapIndia = () => {
     resumeTimer.current = setTimeout(() => setPaused(false), 1000);
   };
 
-  return (
+   return (
     <motion.div
       className="map-wrapper"
       initial={{ opacity: 0, y: 50 }}
@@ -218,8 +218,10 @@ const MapIndia = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
+            {/* Render all paths and effects first */}
             {states.map((state) => {
               const isGlowing = state.id === glowingStateId;
+
               return (
                 <React.Fragment key={state.id}>
                   <motion.path
@@ -251,20 +253,28 @@ const MapIndia = () => {
                       />
                     </g>
                   )}
-
-                  {isGlowing && (
-                    <motion.text
-                      x={state.labelPos.x}
-                      y={state.labelPos.y - 10}
-                      className="state-label"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {state.name}: {state.customers}
-                    </motion.text>
-                  )}
                 </React.Fragment>
+              );
+            })}
+
+            {/* Render state labels on top */}
+            {states.map((state) => {
+              const isGlowing = state.id === glowingStateId;
+
+              return (
+                isGlowing && (
+                  <motion.text
+                    key={`${state.id}-label`}
+                    x={state.labelPos.x -  80}
+                    y={state.labelPos.y} 
+                    className="state-label"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {state.name}
+                  </motion.text>
+                )
               );
             })}
           </motion.svg>
@@ -281,16 +291,23 @@ const MapIndia = () => {
             We proudly serve clients across{" "}
             <strong>{activeStates.length}</strong> Indian states,
             delivering trusted solutions to over{" "}
-            <strong className="clients__highlight">{totalClients}+</strong> organizations.
+            <strong className="clients__highlight">{totalClients}+</strong>{" "}
+            organizations.
           </p>
           <p className="clients__active">
             {clickedStateId
-              ? `${states.find((s) => s.id === clickedStateId).name} — ${states.find((s) => s.id === clickedStateId).customers
-              } client${states.find((s) => s.id === clickedStateId).customers > 1 ? 's' : ''}`
-              : `${activeState?.name} — ${activeState?.customers} client${activeState?.customers > 1 ? 's' : ''}`}
+              ? `${states.find((s) => s.id === clickedStateId).name} — ${
+                  states.find((s) => s.id === clickedStateId).customers
+                } client${
+                  states.find((s) => s.id === clickedStateId).customers > 1
+                    ? "s"
+                    : ""
+                }`
+              : `${activeState?.name} — ${activeState?.customers} client${
+                  activeState?.customers > 1 ? "s" : ""
+                }`}
           </p>
         </motion.div>
-
       </div>
     </motion.div>
   );

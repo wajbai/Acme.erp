@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "../css/Chatbot.css";
 import botAvatar from '../assets/img/acme_logo.svg'; 
 
-const N8N_CHAT_URL = "https://wajbai.app.n8n.cloud/webhook/5f1c0c82-0ff9-40c7-9e2e-b1a96ffe24cd/chat";
+const N8N_CHAT_URL = "https://akshayawaj.app.n8n.cloud/webhook/1f97953d-4185-452f-9867-10012e0c9028/chat";
 
 function Chatbot() {
   const [open, setOpen] = useState(false);

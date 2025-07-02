@@ -71,7 +71,7 @@ const Functional = () => {
 
         .flip-card-inner {
           position: relative;
-          width: 100%;
+          width:100%;
           height: 100%;
           text-align: center;
           transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -84,8 +84,8 @@ const Functional = () => {
 
         .flip-card-front, .flip-card-back {
           position: absolute;
-          width: 100%;
-          height: 100%;
+          width: 160px;
+          height: 160px;
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
           border-top-right-radius: 25px;
@@ -97,7 +97,6 @@ const Functional = () => {
           padding: 20px;
           border: 1px solid rgba(255, 255, 255, 0.15);
         }
-
         .flip-card-front {
           background: linear-gradient(135deg, #004868 0%, #004868 100%);
           color: white;
@@ -110,7 +109,7 @@ const Functional = () => {
         }
 
         .feature-icons {
-          font-size: 2.5rem;
+          font-size: 2.0rem;
           margin-bottom: 15px;
         }
 
@@ -121,8 +120,8 @@ const Functional = () => {
         }
 
         .feature-description {
-          font-size: 0.95rem;
-          line-height: 1.4;
+          font-size: 0.8rem;
+          line-height: 1.2;
           text-align: center;
           opacity: 0.95;
         }
@@ -144,9 +143,9 @@ const Functional = () => {
         }
 
         .section-subtitle {
-          color: #7f8c8d;
-          font-size: 1.1rem;
-          font-weight: 500;
+          color:rgb(96, 105, 105);
+          font-size: 1.8rem;
+          font-weight: 800;
         }
 
         .features-container {

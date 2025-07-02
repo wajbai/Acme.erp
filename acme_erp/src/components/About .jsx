@@ -113,7 +113,7 @@ const About = () => {
           {/* Right side - Content */}
           <div className="content-side">
             <div className="content-section">
-              <h6 className='h6'>About Our Acme.erp</h6>
+              <h6 className='abouttext'>About Our Acme.erp</h6>
               <h1>
                 Empowering Smarter<br />
                 Decisions for Faith-Based &<br />

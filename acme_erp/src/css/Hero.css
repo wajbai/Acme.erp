@@ -98,9 +98,11 @@ margin-top: -60px;
 }
 
 .hero-image {
-  height: auto;
+  /* height: auto; */
   position:relative;
   z-index: 5;
+  width: 480rem !important;
+  height: 480px;
 }
 
 
