@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../css/Chatbot.css";
-import botAvatar from '../assets/img/acme_logo.svg'; 
+import botAvatar from '../assets/img/acme_logo.svg';
+import { MessageCircle, X, Sparkles } from 'lucide-react';
 
 const N8N_CHAT_URL = "https://akshayawaj.app.n8n.cloud/webhook/1f97953d-4185-452f-9867-10012e0c9028/chat";
 
@@ -14,10 +15,10 @@ function Chatbot() {
   const chatEndRef = useRef(null);
 
   useEffect(() => {
-    let id = localStorage.getItem("sessionId");
+    let id = sessionStorage.getItem("sessionId"); // Changed from localStorage to sessionStorage
     if (!id) {
       id = uuidv4();
-      localStorage.setItem("sessionId", id);
+      sessionStorage.setItem("sessionId", id);
     }
     setSessionId(id);
   }, []);
@@ -52,7 +53,10 @@ function Chatbot() {
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error("Error:", err);
-      setMessages((prev) => [...prev, { sender: "bot", text: "❌ Error contacting AI." }]);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "❌ Error contacting AI." },
+      ]);
     }
 
     setLoading(false);
@@ -62,22 +66,37 @@ function Chatbot() {
     if (e.key === "Enter") sendMessage();
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-    if (messages.length === 0) {
+  const handleToggle = () => {
+    setOpen((prev) => !prev);
+    if (!open && messages.length === 0) {
       const welcomeMsg = {
         sender: "bot",
-        text: "👋 Hi there! I’m Acme’s AI Assistant. How can I support you today?",
+        text: "👋 Hi there! I'm Acme's AI Assistant. How can I support you today?",
       };
       setMessages([welcomeMsg]);
     }
-
   };
 
   return (
     <div>
-      <div className="chatbot-toggle" onClick={handleOpen}>
-        💬  Acme AI Assistant
+      <div className="chatbot-container">
+        <div
+          className={`chatbot-toggle ${open ? "open" : ""}`}
+          onClick={handleToggle}
+        >
+          <div className="toggle-content">
+            <div className="icon-wrapper">
+              {open ? <X size={24} /> : <MessageCircle size={24} />}
+            </div>
+            <div className="chat-text">
+              <span className="highlight-text">Chat with us</span>
+              <span className="sub-text">We're here to help!</span>
+            </div>
+          </div>
+          <div className="ai-indicator">
+            <Sparkles size={12} className="sparkle" />
+          </div>
+        </div>
       </div>
 
       {open && (
@@ -87,14 +106,19 @@ function Chatbot() {
               <img src={botAvatar} alt="Acme Bot" className="chatbot-avatar" />
               <span>Acme AI Assistant</span>
             </div>
-            <button className="X-button" onClick={() => setOpen(false)}  >
+            <button className="X-button" onClick={() => setOpen(false)}>
               ×
             </button>
           </div>
 
           <div className="chatbot-messages">
             {messages.map((msg, idx) => (
-              <div key={idx} className={`chatbot-message ${msg.sender === "user" ? "user" : "bot"}`}>
+              <div
+                key={idx}
+                className={`chatbot-message ${
+                  msg.sender === "user" ? "user" : "bot"
+                }`}
+              >
                 {msg.text}
               </div>
             ))}
@@ -107,7 +131,11 @@ function Chatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyPress}
-              placeholder={loading ? "Sending message..." : "Ask me anything about Acme ERP..."}
+              placeholder={
+                loading
+                  ? "Sending message..."
+                  : "Ask me anything about Acme ERP..."
+              }
               disabled={loading}
             />
 
@@ -122,4 +150,3 @@ function Chatbot() {
 }
 
 export default Chatbot;
-

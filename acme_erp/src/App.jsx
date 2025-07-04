@@ -26,6 +26,7 @@ import Functional from './components/Functional .jsx';
 import CustomCursor from './components/CustomCursor.jsx';
 import Chatbot from './components/Chatbot.jsx';
 import MapIndia from '../src/components/MapIndia.jsx';
+import MapToggle from './components/MapToggle.jsx';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -78,9 +79,9 @@ const Home = () => {
       </div>
 
       <div id="plan">
-        <motion.div {...fadeInUp}>
+        {/* <motion.div {...fadeInUp}> */}
           <Plan />
-        </motion.div>
+        {/* </motion.div> */}
       </div>
 
       <div id="question">
@@ -123,6 +124,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/Termscondition" element={<Tearmsconditions />} />
         <Route path='/Privacy-Policy' element={<Privacy />} />
+        {/* <Route path='/map' element={<MapToggle/>}/> */}
       </Routes>
       <Footer />
     </Router>

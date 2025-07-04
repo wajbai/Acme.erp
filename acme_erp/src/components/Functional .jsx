@@ -36,145 +36,145 @@ const Functional = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 12, duration: 0.6 }
+      transition: { type: "spring", stiffness: 120, damping: 14 }
     }
   };
 
   const iconVariants = {
+    initial: { rotate: 0 },
     hover: {
-      scale: 1.2,
-      rotate: [0, -10, 10, -10, 0],
-      transition: { duration: 0.6, ease: "easeInOut" }
+      rotate: [0, 10, -10, 10, -10, 0],
+      scale: 1.3,
+      transition: { duration: 0.8, ease: "easeInOut" }
     }
   };
 
   return (
     <>
       <style jsx>{`
-        .flip-card {
-          background-color: transparent;
-          width: 75%;
-          height: 180px;
-          perspective: 1000px;
-          margin-bottom: 30px;
-        }
-
-        .mx-auto {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .flip-card-inner {
-          position: relative;
-          width:100%;
-          height: 100%;
-          text-align: center;
-          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          transform-style: preserve-3d;
-        }
-
-        .flip-card:hover .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-          position: absolute;
-          width: 160px;
-          height: 160px;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          border-top-right-radius: 25px;
-          border-bottom-left-radius: 25px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        .flip-card-front {
-          background: linear-gradient(135deg, #004868 0%, #004868 100%);
-          color: white;
-        }
-
-        .flip-card-back {
-          background: linear-gradient(135deg, #EFF6F9 0%, #EFF6F9 100%);
-          color: #004868;
-          transform: rotateY(180deg);
-        }
-
-        .feature-icons {
-          font-size: 2.0rem;
-          margin-bottom: 15px;
-        }
-
-        .feature-title {
-          font-size: 1.1rem;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-
-        .feature-description {
-          font-size: 0.8rem;
-          line-height: 1.2;
-          text-align: center;
-          opacity: 0.95;
-        }
-
-        .flip-card-back .feature-icons {
-          margin-bottom: 20px;
-        }
-
-        .section-header {
-          text-align: center;
-          margin-bottom: 60px;
-        }
-
-        .section-title {
-          font-size: 2.5rem;
-          font-weight: bold;
-          color: #2c3e50;
-          margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-          color:rgb(96, 105, 105);
-          font-size: 1.8rem;
-          font-weight: 800;
-        }
-
         .features-container {
           background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
           min-height: 100vh;
-          padding: 80px 0;
+          padding: 60px 0;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .features-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 150%;
+          height: 150%;
+          background: radial-gradient(circle at 20% 20%, rgba(0, 172, 210, 0.1), transparent 50%),
+                      radial-gradient(circle at 80% 30%, rgba(30, 94, 126, 0.1), transparent 50%),
+                      radial-gradient(circle at 50% 80%, rgba(0, 172, 210, 0.15), transparent 50%);
+          transform: translateX(-50%);
+          z-index: 0;
         }
 
         .container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .section-header {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .section-title {
+          font-size: 2.4rem;
+          font-weight: bold;
+          color: #2c3e50;
+          margin-bottom: 5px;
+        }
+
+        .section-subtitle {
+          color: #1E5E7E;
+          font-size: 1.6rem;
+          font-weight: 700;
         }
 
         .row {
           display: flex;
           flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .cards {
+          background: #ffffff;
+          border-radius: 16px;
+          padding: 20px 15px;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+          min-height: 200px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          border: 1px solid #e0e0e0;
+          position: relative;
+        }
+
+        .cards:hover {
+          background: linear-gradient(135deg, #1E5E7E, #00ACD2);
+          color: white;
+          transform: translateY(-5px) scale(1.02);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cards:hover .feature-title,
+        .cards:hover .feature-description,
+        .cards:hover .feature-icons {
+          color: white;
+          
+        }
+
+        .feature-icons {
+          font-size: 2rem;
+          margin-bottom: 10px;
+          color: #1E5E7E;
+        }
+
+        .feature-title {
+          font-size: 1.05rem;
+          font-weight: bold;
+          margin-bottom: 6px;
+          color: #004867;
+        }
+
+        .feature-description {
+          font-size: 0.8rem;
+          color: #444;
         }
 
         .col-lg-3 {
-          flex: 0 0 25%;
-          max-width: 25%;
-          padding: 15px;
+          flex: 0 0 20%;
+          max-width: 20%;
+          padding: 10px;
+        }
+
+        @media (max-width: 1200px) {
+          .col-lg-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+          }
         }
 
         @media (max-width: 992px) {
           .col-lg-3 {
-            flex: 0 0 33.333%;
-            max-width: 33.333%;
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
           }
         }
 
@@ -191,14 +191,6 @@ const Functional = () => {
             max-width: 100%;
           }
         }
-
-        .enhanced-shadow {
-          transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .enhanced-shadow:hover {
-          transform: translateY(-6px) scale(1.01);
-        }
       `}</style>
 
       <div className="features-container">
@@ -209,59 +201,22 @@ const Functional = () => {
           </motion.div>
 
           <motion.div className="row" variants={containerVariants} initial="hidden" animate="visible">
-            {features.map((feature, index) => {
-              if (index < 12) {
-                return (
-                  <motion.div key={feature.id} className="col-lg-3" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <motion.div className="flip-card enhanced-shadow" whileHover="hover">
-                      <div className="flip-card-inner">
-                        <div className="flip-card-front">
-                          <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
-                            {feature.icon}
-                          </motion.div>
-                          <motion.h3 className="feature-title">{feature.title}</motion.h3>
-                        </div>
-                        <div className="flip-card-back">
-                          <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: index * 0.2, ease: "easeInOut" }}>
-                            {feature.icon}
-                          </motion.div>
-                          <motion.p className="feature-description">{feature.description}</motion.p>
-                        </div>
-                      </div>
-                    </motion.div>
+            {features.map((feature, index) => (
+              <motion.div key={feature.id} className="col-lg-3" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <motion.div className="cards" whileHover="hover">
+                  <motion.div
+                    className="feature-icons"
+                    variants={iconVariants}
+                    initial="initial"
+                    whileHover="hover"
+                  >
+                    {feature.icon}
                   </motion.div>
-                );
-              }
-
-              if (index === 12) {
-                return (
-                  <div className="row justify-content-center w-100" key="last-row">
-                    {[12, 13].map((i) => (
-                      <motion.div key={features[i].id} className="col-lg-4" variants={cardVariants} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                        <motion.div className="flip-card enhanced-shadow" whileHover="hover">
-                          <div className="flip-card-inner">
-                            <div className="flip-card-front">
-                              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
-                                {features[i].icon}
-                              </motion.div>
-                              <motion.h3 className="feature-title">{features[i].title}</motion.h3>
-                            </div>
-                            <div className="flip-card-back">
-                              <motion.div className="feature-icons" variants={iconVariants} animate={{ y: [0, -10, 0], opacity: [0, 1] }} transition={{ duration: 3, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}>
-                                {features[i].icon}
-                              </motion.div>
-                              <motion.p className="feature-description">{features[i].description}</motion.p>
-                            </div>
-                          </div>
-                        </motion.div>
-                      </motion.div>
-                    ))}
-                  </div>
-                );
-              }
-
-              return null;
-            })}
+                  <motion.h3 className="feature-title">{feature.title}</motion.h3>
+                  <motion.p className="feature-description">{feature.description}</motion.p>
+                </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
