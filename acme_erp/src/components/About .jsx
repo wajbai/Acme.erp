@@ -53,7 +53,7 @@ const itemRightToLeft = {
 
 const About = () => {
   const width = useWindowWidth();
-  const isMobile = width < 750;
+  const isMobile = width < 1100;
 
   const organizations = [
     { name: "Sisters of St. Anne Madras", image: org1 },
@@ -113,7 +113,7 @@ const About = () => {
           {/* Right side - Content */}
           <div className="content-side">
             <div className="content-section">
-              <h6 className='h6'>About Our Acme.erp</h6>
+              <h6 className='abouttext'>About Our Acme.erp</h6>
               <h1>
                 Empowering Smarter<br />
                 Decisions for Faith-Based &<br />

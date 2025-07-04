@@ -1,21 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
-import '../css/Chatbot.css';
+import React, { useState, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
+import "../css/Chatbot.css";
+import botAvatar from '../assets/img/acme_logo.svg';
+import { MessageCircle, X, Sparkles } from 'lucide-react';
 
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const N8N_CHAT_URL = "https://akshayawaj.app.n8n.cloud/webhook/1f97953d-4185-452f-9867-10012e0c9028/chat";
 
 function Chatbot() {
   const [open, setOpen] = useState(false);
-  const [apiKey, setApiKey] = useState(
-    localStorage.getItem("gemini_api_key") || "AIzaSyCh1U7IvKqvifRalILOw9J2Etfhz8_gKJk"
-  );
+  const [sessionId, setSessionId] = useState("");
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState(() => {
-    const stored = localStorage.getItem("chat_history");
-    return stored ? JSON.parse(stored) : [];
-  });
-  const [userName, setUserName] = useState(() => localStorage.getItem("user_name") || "");
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
+
+  useEffect(() => {
+    let id = sessionStorage.getItem("sessionId"); // Changed from localStorage to sessionStorage
+    if (!id) {
+      id = uuidv4();
+      sessionStorage.setItem("sessionId", id);
+    }
+    setSessionId(id);
+  }, []);
 
   useEffect(() => {
     if (open && chatEndRef.current) {
@@ -23,152 +29,120 @@ function Chatbot() {
     }
   }, [messages, open]);
 
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.removeItem("chat_history");
-      localStorage.removeItem("user_name");
-    };
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, []);
-
-  const handleApiKeySave = () => {
-    localStorage.setItem("gemini_api_key", apiKey);
-  };
-
-  const handleSend = async () => {
+  const sendMessage = async () => {
     if (!input.trim()) return;
-
-    const userMsg = { role: "user", content: input };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
+    const userMessage = { sender: "user", text: input };
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
-    localStorage.setItem("chat_history", JSON.stringify(newMessages));
-
-    const nameMatch = input.match(/my name is (\w+)/i);
-    if (nameMatch) {
-      const name = nameMatch[1];
-      setUserName(name);
-      localStorage.setItem("user_name", name);
-    }
-
-    if (/what(?:'s| is) my name\??/i.test(input)) {
-      const botReply = userName
-        ? `Your name is ${userName}.`
-        : "I don't know your name yet. Please tell me by saying 'My name is ...'";
-      const botMsg = { role: "bot", content: botReply };
-      const updatedMessages = [...newMessages, botMsg];
-      setMessages(updatedMessages);
-      localStorage.setItem("chat_history", JSON.stringify(updatedMessages));
-      setLoading(false);
-      return;
-    }
 
     try {
-      const res = await fetch(`${GEMINI_API_URL}?key=${apiKey}`, {
+      const response = await fetch(N8N_CHAT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: input }] }],
-          generationConfig: { maxOutputTokens: 50 },
+          action: "sendMessage",
+          sessionId,
+          chatInput: input,
         }),
       });
 
-      const data = await res.json();
-      const botMsg = {
-        role: "bot",
-        content: data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response from Gemini.",
-      };
-
-      const updatedMessages = [...newMessages, botMsg];
-      setMessages(updatedMessages);
-      localStorage.setItem("chat_history", JSON.stringify(updatedMessages));
-    } catch (e) {
-      console.error("Gemini API call failed:", e);
-      const errorMsg = { role: "bot", content: "Error contacting Gemini API." };
-      const updatedMessages = [...newMessages, errorMsg];
-      setMessages(updatedMessages);
-      localStorage.setItem("chat_history", JSON.stringify(updatedMessages));
+      const data = await response.json();
+      const reply = data.output || "✅ Message sent, but no reply received.";
+      const botMessage = { sender: "bot", text: reply };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (err) {
+      console.error("Error:", err);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "❌ Error contacting AI." },
+      ]);
     }
 
     setLoading(false);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-    if (messages.length === 0) {
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") sendMessage();
+  };
+
+  const handleToggle = () => {
+    setOpen((prev) => !prev);
+    if (!open && messages.length === 0) {
       const welcomeMsg = {
-        role: "bot",
-        content: "👋 Welcome to Acme ERP, how can I help you?",
+        sender: "bot",
+        text: "👋 Hi there! I'm Acme's AI Assistant. How can I support you today?",
       };
       setMessages([welcomeMsg]);
-      localStorage.setItem("chat_history", JSON.stringify([welcomeMsg]));
     }
   };
 
   return (
     <div>
-      <div className="chatbot-toggle" onClick={handleOpen}>
-  Chat with us 💬
-</div>
-
+      <div className="chatbot-container">
+        <div
+          className={`chatbot-toggle ${open ? "open" : ""}`}
+          onClick={handleToggle}
+        >
+          <div className="toggle-content">
+            <div className="icon-wrapper">
+              {open ? <X size={24} /> : <MessageCircle size={24} />}
+            </div>
+            <div className="chat-text">
+              <span className="highlight-text">Chat with us</span>
+              <span className="sub-text">We're here to help!</span>
+            </div>
+          </div>
+          <div className="ai-indicator">
+            <Sparkles size={12} className="sparkle" />
+          </div>
+        </div>
+      </div>
 
       {open && (
         <div className="chatbot-window">
           <div className="chatbot-header">
-            <strong>Acme Chatbot</strong>
-            <button onClick={() => setOpen(false)} aria-label="Close" style={{color: '#111'}}>×</button>
+            <div className="chatbot-header-title">
+              <img src={botAvatar} alt="Acme Bot" className="chatbot-avatar" />
+              <span>Acme AI Assistant</span>
+            </div>
+            <button className="X-button" onClick={() => setOpen(false)}>
+              ×
+            </button>
           </div>
 
           <div className="chatbot-messages">
-            {!apiKey ? (
-              <div>
-                <p>Enter your Gemini API key to start chatting:</p>
-                <input
-                  type="text"
-                  value={apiKey}
-                  onChange={(e) => setApiKey(e.target.value)}
-                  placeholder="Paste Gemini API key here"
-                  style={{ width: "100%", marginBottom: 8 }}
-                />
-                <button onClick={handleApiKeySave} style={{ width: "100%" }}>
-                  Save API Key
-                </button>
-                <p style={{ fontSize: 12, color: "#888", marginTop: 8 }}>
-                  Get your free API key from{" "}
-                  <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">
-                    Google AI Studio
-                  </a>.
-                </p>
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`chatbot-message ${
+                  msg.sender === "user" ? "user" : "bot"
+                }`}
+              >
+                {msg.text}
               </div>
-            ) : (
-              <>
-                {messages.map((msg, i) => (
-                  <div key={i} className={`chatbot-message ${msg.role === "user" ? "user" : "bot"}`}>
-                    {msg.content}
-                  </div>
-                ))}
-                <div ref={chatEndRef} />
-              </>
-            )}
+            ))}
+            <div ref={chatEndRef} />
           </div>
 
-          {apiKey && (
-            <div className="chatbot-input-area">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && !loading && handleSend()}
-                placeholder={loading ? "Waiting for Gemini..." : "Type your message..."}
-                disabled={loading}
-              />
-              <button onClick={handleSend} disabled={loading || !input.trim()}>
-                {loading ? "..." : "Send"}
-              </button>
-            </div>
-          )}
+          <div className="chatbot-input-area">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder={
+                loading
+                  ? "Sending message..."
+                  : "Ask me anything about Acme ERP..."
+              }
+              disabled={loading}
+            />
+
+            <button onClick={sendMessage} disabled={loading || !input.trim()}>
+              {loading ? "..." : "Send"}
+            </button>
+          </div>
         </div>
       )}
     </div>

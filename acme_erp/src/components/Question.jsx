@@ -31,7 +31,7 @@ const answerVariants = {
 
 const Question = () => {
   const width = useWindowWidth();
-  const isMobile = width < 750;
+  const isMobile = width < 1100;
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
